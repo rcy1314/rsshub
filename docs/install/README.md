@@ -21,6 +21,7 @@ sidebar: auto
 4.  [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
 5.  [Google App Engine](https://cloud.google.com/appengine/)
 6.  [Fly.io](https://fly.io/)
+7.  [Zeabur](https://zeabur.com)
 
 ## Docker 镜像
 
@@ -415,6 +416,8 @@ $ fly secrets set CACHE_TYPE=redis REDIS_URL='<刚才的连接 URL>'
 3.  在项目中选择创建新服务，选择从**服务市场**部署。
 4.  添加域名，若使用自定义域名，可参见 [Zeabur 的域名绑定文档](https://docs.zeabur.com/zh-CN/deploy/domain-binding)。
 
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://dash.zeabur.com/templates/X46PTP)
+
 ## 部署到 Google App Engine
 
 ### 准备
@@ -796,9 +799,9 @@ RSSHub 支持使用访问密钥 / 码，白名单和黑名单三种方式进行�
 
 -   Mastodon 用户时间线路由：访问 `https://mastodon.example/settings/applications` 申请（替换掉 `mastodon.example`）。需要 `read:search` 权限
 
-    -   `MASTODON_API_HOST`: API 请求的实例
+    -   `MASTODON_API_HOST`: API 请求的实例，仅域名，不包括 `http://` 或 `https://` 协议头
     -   `MASTODON_API_ACCESS_TOKEN`: 用户 access token, 申请应用后，在应用配置页可以看到申请者的 access token
-    -   `MASTODON_API_ACCT_DOMAIN`: 该实例本地用户 acct 标识的域名
+    -   `MASTODON_API_ACCT_DOMAIN`: 该实例本地用户 acct 标识的域名，Webfinger account URI，形如 `user@host`
 
 -   Medium 相关路由：打开控制台，复制 Cookie（理论上只需要 uid 和 sid 即可）
 
@@ -864,7 +867,7 @@ RSSHub 支持使用访问密钥 / 码，白名单和黑名单三种方式进行�
 
     -   `TWITTER_CONSUMER_KEY`: Twitter Developer API key，支持多个 key，用英文逗号 `,` 隔开
     -   `TWITTER_CONSUMER_SECRET`: Twitter Developer API key secret，支持多个 key，用英文逗号 `,` 隔开，顺序与 key 对应
-    -   `TWITTER_WEBAPI_AUTHORIZAION`: Twitter Web API authorization。如果上述两个环境变量中的任意一个未设置，就会使用 Twitter Web API。然而，没有必要设置这个环境变量，因为所有用户和访客共享同一个 authorization token 且已经内置于 RSSHub 之中。
+    -   `TWITTER_WEBAPI_AUTHORIZAION`: Twitter Web API authorization，格式为 `key:secret`，支持多个，用英文逗号 `,` 隔开。如果上述两个环境变量中的任意一个未设置，就会使用 Twitter Web API。然而，没有必要设置这个环境变量，因为 RSSHub 已经内置了目前已知可用的 token。
     -   `TWITTER_TOKEN_{handler}`: 对应 Twitter 用户名生成的 token，`{handler}` 替换为用于生成该 token 的 Twitter 用户名，值为 `Twitter API key, Twitter API key secret, Access token, Access token secret` 用逗号隔开，例如：`TWITTER_TOKEN_RSSHub=bX1zry5nG4d1RbESQbnADpVIo,2YrD8qo9sXbB8VlYfVmo1Qtw0xsexnOliU5oZofq7aPIGou0Xx,123456789-hlkUHFYmeXrRcf6SEQciP8rP4lzmRgMgwdqIN9aK,pHcPnfa28rCIKhSICUCiaw9ppuSSl7T2f3dnGYpSM0bod`
 
 -   Wordpress
@@ -946,6 +949,10 @@ RSSHub 支持使用访问密钥 / 码，白名单和黑名单三种方式进行�
 -   轻小说文库
 
     -   `WENKU8_COOKIE`: 登陆轻小说文库后的 cookie
+
+-   色花堂
+
+    -   `SEHUATANG_COOKIE`: 登陆色花堂后的 cookie 值。
 
 -   邮箱 邮件列表路由：
 
