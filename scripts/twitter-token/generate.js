@@ -8,7 +8,7 @@ const proxyUrl = ''; // Add your proxy here
 
 const baseURL = 'https://api.twitter.com/1.1/';
 const headers = {
-    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAFXzAwAAAAAAMHCxpeSDG1gLNLghVe8d74hl6k4%3DRUMF4xAQLsbeBhTSRrCiQpJtxoGWeyHrDb5te2jpGskWDFW82F',
+    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAJzRpAEAAAAAzqMff05U93lN0QblghjaZcWQJGo%3DZulS2oYx8ELULXkG7bfmOm3TTicEAcZIzO0Dk4i9CGv1Gym9PV','Bearer AAAAAAAAAAAAAAAAAAAAAFXzAwAAAAAAMHCxpeSDG1gLNLghVe8d74hl6k4%3DRUMF4xAQLsbeBhTSRrCiQpJtxoGWeyHrDb5te2jpGskWDFW82F',
     'User-Agent': 'TwitterAndroid/10.10.0',
 };
 
