@@ -115,6 +115,7 @@ LABEL org.opencontainers.image.authors="https://github.com/DIYgod/RSSHub"
 
 ENV NODE_ENV production
 ENV TZ Asia/Shanghai
+ENV MEILISEARCH_URL=https://your-meilisearch-instance-url
 
 WORKDIR /app
 
