@@ -74,7 +74,7 @@ module.exports = async ({ github, context, core }) => {
                 labels,
             })
             .catch((e) => {
-                core.warning(e);
+                core.warning(`Warning triggered during adding labels to issue: ${e.message}`);
             });
     const updateIssueState = (state) =>
         github.rest.issues
@@ -83,7 +83,7 @@ module.exports = async ({ github, context, core }) => {
                 state,
             })
             .catch((e) => {
-                core.warning(e);
+                core.warning(`Warning triggered during updating the issue state: ${e.message}`);
             });
 
     if (context.payload.issue.state === 'closed') {
@@ -91,16 +91,15 @@ module.exports = async ({ github, context, core }) => {
     }
 
     const routes = await parseBodyRoutes(body, core).catch((e) => {
-        core.warning(e);
+        core.warning(`Error while parsing body routes: ${e.message}`);
     });
 
     if (routes === null) {
         return; // Not a bug report, or NOROUTE
     }
 
-    if (routes === undefined) {
-        await addLabels([parseFailTag]);
-        return;
+    if (!Array.isArray(routes) || routes.some(route => typeof route !== 'string')) {
+        throw new Error('Error: `routes` is undefined or not in the expected format of an array of strings.');
     }
 
     const maintainers = await getMaintainersByRoutes(routes, core);
@@ -172,7 +171,7 @@ If all routes can not be found, the issue will be closed automatically. Please u
 `,
         })
         .catch((e) => {
-            core.warning(e);
+            core.warning(`Warning triggered during issue comment creation: ${e.message}`);
         });
 
     if (failedCount && emptyCount === 0 && successCount === 0) {
