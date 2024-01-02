@@ -5,7 +5,10 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
     core.debug(`sender: ${sender}`);
     core.debug(`body: ${body}`);
     const m = body.match(/```routes\s+([\s\S]*?)```/);
-    core.debug(`match: ${m}`);
+    core.debug(`match: ${JSON.stringify(m)}`);
+    if (!m || !Array.isArray(m) || m.length < 2) {
+        throw new Error('Error: Matched routes array `m` is not in expected format');
+    }
     let res = null;
 
     const issueFacts = {
@@ -108,6 +111,7 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         }
     }
 
+    core.debug(`res before failing: ${JSON.stringify(res)}`);
     core.warning('Seems like no valid routes can be found. Failing.');
 
     await createFailedComment();
@@ -116,5 +120,5 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         await updatePrState('closed');
     }
 
-    throw Error('Please follow the PR rules: failed to detect route');
+    throw Error(`Please follow the PR rules: failed to detect route. Debug info - Match result: ${JSON.stringify(m)}, Routes detected: ${JSON.stringify(res)}`);
 };
