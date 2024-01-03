@@ -1,0 +1,26 @@
+name: Pull Request Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Pull Request Number
+        id: pr
+        run: echo "::set-output name=number::$(jq --raw-output .number $GITHUB_EVENT_PATH)"
+        shell: bash
+
+      - name: Make GitHub API Request
+        uses: octokit/request-action@v2.x
+        with:
+          route: GET /repos/{repo}/pulls/{number}
+          repo: ${{ github.repository }}
+          number: ${{ steps.pr.outputs.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
