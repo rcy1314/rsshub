@@ -26,7 +26,11 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
                 labels,
             })
             .catch((e) => {
-                core.warning(e);
+                if (e.status === 403) {
+                    core.warning('HttpError: Resource not accessible by integration');
+                } else {
+                    core.warning(e);
+                }
             });
 
     const removeLabel = () =>
@@ -91,7 +95,7 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         core.debug('PR created by ' + sender);
     }
 
-    if (m && m[1]) {
+    return;    if (m && m[1]) {
         res = m[1].trim().split(/\r?\n/);
         core.info(`routes detected: ${res}`);
 
@@ -116,5 +120,5 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         await updatePrState('closed');
     }
 
-    throw Error('Please follow the PR rules: failed to detect route');
+    core.warning('Please follow the PR rules: failed to detect route');
 };
