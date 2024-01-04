@@ -14,7 +14,7 @@ Before you start, you need to install the dependencies for RSSHub. You can do th
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-npm install
+npm install # Use this command if npm is the package manager. Commit the generated package-lock.json file to the repository.
 ```
 
 </TabItem>
@@ -28,7 +28,7 @@ yarn
 <TabItem value="npm" label="npm">
 
 ```bash
-npm install
+npm install # Use this command if npm is the package manager. Commit the generated package-lock.json file to the repository.
 ```
 
 </TabItem>
@@ -56,7 +56,7 @@ yarn dev
 <TabItem value="npm" label="npm">
 
 ```bash
-npm run dev
+npm run dev # Use this command if npm is the package manager
 ```
 
 </TabItem>
