@@ -5,7 +5,7 @@ const { nodeFileTrace } = require('@vercel/nft');
 // !!! if any new dependencies are added, update the Dockerfile !!!
 
 const projectRoot = path.resolve(process.env.PROJECT_ROOT || path.join(__dirname, '../..'));
-const resultFolder = path.join(projectRoot, 'app-minimal'); // no need to resolve, ProjectRoot is always absolute
+const meiliSearchUrl = process.env.MEILI_HTTP_URL || 'http://meilisearch-instance:7700';
 const files = ['lib/index.js', 'api/vercel.js'].map((file) => path.join(projectRoot, file));
 
 (async () => {
