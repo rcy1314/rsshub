@@ -289,20 +289,24 @@ The most direct way to deploy `RSSHub`, you can follow the steps below to deploy
 
 ### Install
 
-Execute the following commands to download the source code
+Execute the following commands to download the source code and navigate to the project directory.
 
 ```bash
 $ git clone https://github.com/DIYgod/RSSHub.git
 $ cd RSSHub
 ```
 
-Execute the following commands to install dependencies (Do not add the `--production` parameter for development).
+In the command line, execute the following commands to use npm and install the project dependencies. This will ensure the generation of the package-lock.json file.
+
+```bash
+$ npm install
+```
 
 <Tabs groupId="package-manager">
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-pnpm install --prod
+npm install
 ```
 
 </TabItem>
