@@ -299,7 +299,7 @@ $ cd RSSHub
 In the command line, execute the following commands to use npm and install the project dependencies. This will ensure the generation of the package-lock.json file.
 
 ```bash
-$ npm install
+$ npm install # Use this command if npm is the package manager. Commit the generated package-lock.json file to the repository.
 ```
 
 <Tabs groupId="package-manager">
