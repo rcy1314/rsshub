@@ -14,7 +14,7 @@ Before you start, you need to install the dependencies for RSSHub. You can do th
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-pnpm i
+npm install
 ```
 
 </TabItem>
