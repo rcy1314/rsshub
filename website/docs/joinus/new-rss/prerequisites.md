@@ -8,7 +8,7 @@ Before you begin, it is important that your development environment set up prope
 
 ## Install Node.js
 
-To be able to write new RSS rules, you must first install Node.js first. RSSHub uses Node.js to run its code and create RSS feeds and requires Node v16 or above. You can download the latest LTS version of Node.js from [here](https://nodejs.org/en/download).
+To be able to write new RSS rules, you must first install Node.js first. RSSHub uses Node.js to run its code and create RSS feeds and requires Node v16 or above. To install the project dependencies, you need to use npm version 5 or later. You can download the latest LTS version of Node.js from [here](https://nodejs.org/en/download) and npm version 5 or later from [here](https://www.npmjs.com).
 
 On Windows, you can simply download the installer and follow the steps from the installer. Remember to check the option to install **Tools for Native Modules** as well.
 
@@ -22,6 +22,7 @@ To write code, you need a code editor. If you already have one, you can skip thi
 
 -   [Visual Studio Code](https://code.visualstudio.com)
 -   [WebStorm](https://www.jetbrains.com/webstorm)
+-   [npm version 5 or later](https://www.npmjs.com)
 -   [Neovim](https://neovim.io)
 -   [Sublime Text](https://www.sublimetext.com)
 
@@ -31,13 +32,26 @@ To speed up the development process and make it easier to keep your code clean, 
 -   [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)(maintain consistent coding styles across different editors and IDEs)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)(identify and fix common errors in your code)
 -   [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)(formats your code to make it more readable and consistent)
+-   [npm version 5 or later](https://www.npmjs.com)
 
 ### Cloud hosted development environment
+
+In the command line, execute the following commands to use npm and install the project dependencies. This will ensure the generation of the package-lock.json file.
+
+```bash
+$ npm install
+```
+
+In the command line, execute the following commands to use npm and install the project dependencies. This will ensure the generation of the package-lock.json file.
+
+```bash
+$ npm install
+```
 
 If you don't want to install Node.js and a code editor on your computer, you can use a cloud-hosted development environment. You may use [GitHub Codespaces](https://codespace.new/) or [Gitpod](https://www.gitpod.io). Just click one of the buttons below to start a new workspace:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/DIYgod/RSSHub?quickstart=1)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DIYgod/RSSHub)
+[![install npm version 5 or later](https://www.npmjs.com)(https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DIYgod/RSSHub)
 
 For more information about how to use [GitHub Codespaces](https://codespace.new/) or [Gitpod](https://www.gitpod.io/) , see [GitHub's documentation](https://docs.github.com/codespaces) and [Gitpod's documentation](https://www.gitpod.io/docs/).
