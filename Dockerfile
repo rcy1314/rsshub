@@ -12,7 +12,7 @@ RUN \
         echo 'use npm mirror' && \
         npm config set registry https://registry.npmmirror.com && \
         yarn config set registry https://registry.npmmirror.com && \
-        pnpm config set registry https://registry.npmmirror.com ; \
+        npm config set registry https://registry.npmmirror.com ; \
     fi;
 
 COPY ./pnpm-lock.yaml /app/
@@ -23,7 +23,7 @@ RUN \
     set -ex && \
     export PUPPETEER_SKIP_DOWNLOAD=true && \
     corepack enable pnpm && \
-    pnpm install --prod --frozen-lockfile && \
+    npm install --production && \
     pnpm rb
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ RUN \
     if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
         npm config set registry https://registry.npmmirror.com && \
         yarn config set registry https://registry.npmmirror.com && \
-        pnpm config set registry https://registry.npmmirror.com ; \
+        npm config set registry https://registry.npmmirror.com ; \
     fi; \
     corepack enable pnpm && \
     pnpm add @vercel/nft@$(cat .nft_version) fs-extra@$(cat .fs_extra_version) --save-prod
@@ -96,7 +96,7 @@ RUN \
         if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
             npm config set registry https://registry.npmmirror.com && \
             yarn config set registry https://registry.npmmirror.com && \
-            pnpm config set registry https://registry.npmmirror.com ; \
+            npm config set registry https://registry.npmmirror.com ; \
         fi; \
         echo 'Downloading Chromium...' && \
         unset PUPPETEER_SKIP_DOWNLOAD && \
