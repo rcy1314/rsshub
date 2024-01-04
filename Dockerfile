@@ -23,7 +23,7 @@ RUN \
     set -ex && \
     export PUPPETEER_SKIP_DOWNLOAD=true && \
     corepack enable pnpm && \
-    npm install --production && \
+    npm install && \
     pnpm rb
 
 # ---------------------------------------------------------------------------------------------------------------------
