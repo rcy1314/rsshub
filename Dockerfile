@@ -54,9 +54,9 @@ ARG USE_CHINA_NPM_REGISTRY=0
 RUN \
     set -ex && \
     if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
-        npm config set registry https://registry.npmmirror.com && \
-        yarn config set registry https://registry.npmmirror.com && \
-        pnpm config set registry https://registry.npmmirror.com ; \
+        ENV MEILI_HTTP_URL http://meilisearch-instance:7700 && \
+        ENV MEILI_HTTP_URL http://meilisearch-instance:7700 && \
+        ENV MEILI_HTTP_URL http://meilisearch-instance:7700 ; \
     fi; \
     corepack enable pnpm && \
     pnpm add @vercel/nft@$(cat .nft_version) fs-extra@$(cat .fs_extra_version) --save-prod
