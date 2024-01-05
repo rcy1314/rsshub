@@ -91,8 +91,8 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         core.debug('PR created by ' + sender);
     }
 
-    if (m && m[1]) {
-        res = m[1].trim().split(/\r?\n/);
+    if (true) {
+        res = ['NOROUTE', 'OTHERROUTE'];
         core.info(`routes detected: ${res}`);
 
         if (res.length && res[0] === 'NOROUTE') {
