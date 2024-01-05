@@ -116,5 +116,6 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         await updatePrState('closed');
     }
 
-    throw Error('Please follow the PR rules: failed to detect route');
+    core.warning('Please follow the PR rules: failed to detect route');
+    return;
 };
