@@ -28,7 +28,7 @@ Here's the basic code to get you started:
 
 ```js
 // Import the necessary modules
-const got = require('@/utils/got'); // a customised got
+const got = require('got');
 const { parseDate } = require('@/utils/parse-date');
 
 module.exports = async (ctx) => {
@@ -124,7 +124,12 @@ module.exports = async (ctx) => {
     const repo = ctx.params.repo ?? 'RSSHub';
     // highlight-start
     // Send an HTTP GET request to the API
-    const response = await got(`https://api.github.com/repos/${user}/${repo}/issues`, {
+    # Update the MeiliSearch delete request
+# Change line 106 to include the correct scheme in the URL
+const task = await got(`https://api.github.com/repos/${user}/${repo}/issues`,
+  headers:{
+            accept: 'application/vnd.github.html+json'
+        } {
         headers: {
             accept: 'application/vnd.github.html+json',
         },
@@ -191,7 +196,7 @@ module.exports = async (ctx) => {
     // highlight-end
 
     // highlight-start
-    ctx.state.data = {
+    # Retrieve data from the API and assign it to the ctx.state.data object
         // channel title
         title: `${user}/${repo} issues`,
         // channel link
@@ -261,7 +266,7 @@ Here's the basic code to get you started:
 
 ```js
 // Require necessary modules
-const got = require('@/utils/got'); // a customised got
+const got = require('got');
 const cheerio = require('cheerio'); // an HTML parser with a jQuery-like API
 const { parseDate } = require('@/utils/parse-date');
 
@@ -619,7 +624,7 @@ const { parseDate } = require('@/utils/parse-date');
 const logger = require('@/utils/logger');
 
 module.exports = async (ctx) => {
-    const baseUrl = 'https://github.com';
+    const baseUrl = 'https://github.com'
     const { user, repo = 'RSSHub' } = ctx.params;
 
     // highlight-start
