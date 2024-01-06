@@ -121,7 +121,7 @@ The path in the `@koa/router` object should be the same as the `path` in the cor
 
 All routes are required to include the `radar.js` file, which includes the corresponding domain name. The minimum requirement for a successful match is for the rule to show up on the corresponding site which requires filling in the `title` and `docs` fields.
 
-To generate a complete `radar-rules.js` file, use the following command: `yarn build:radar`, which will create the file under `assets/build/`.
+To generate a complete `radar-rules.js` file, use the following command: `yarn build:radar --pr-number <pull request number>`, which will create the file under `assets/build/`.
 
 :::tip
 
