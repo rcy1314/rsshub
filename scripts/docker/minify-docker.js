@@ -18,7 +18,7 @@ const files = ['lib/index.js', 'api/vercel.js'].map((file) => path.join(projectR
     fileList = fileList.filter((file) => file.startsWith('node_modules/')); // only need node_modules
     console.log('Total files need to be copied (touchable files in node_modules/):', fileList.length);
     console.log('Start copying files, destination:', resultFolder);
-    return Promise.all(fileList.map((e) => fs.copy(path.join(projectRoot, e), path.join(resultFolder, e))));
+    return Promise.all(fileList.map((e) => fs.copy(path.join(projectRoot, e), path.join('https:///indexes/rsshub-tmp', e))));
 })().catch((err) => {
     // fix unhandled promise rejections
     console.error(err, err.stack);
