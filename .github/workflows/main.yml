@@ -1,0 +1,38 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add necessary steps for the deployment based on the specified deployment method
+
+      # Docker deployment
+      - name: Pull Docker image
+        run: docker pull diygod/rsshub:latest
+
+      # Kubernetes deployment
+      - name: Configure Helm Chart
+        run: helm upgrade --install my-release nsl/rsshub
+
+      # Ansible deployment
+      - name: Configure Ansible playbook
+        run: ansible-playbook rsshub.yaml
+
+      # Manual deployment
+      - name: Install dependencies
+        run: npm install
+
+      # Add any other necessary steps for the deployment
+
+      - name: Deploy
+        run: |
+          # Add deployment command or script here
