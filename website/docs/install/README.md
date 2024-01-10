@@ -8,7 +8,7 @@ RSSHub provides a painless deployment process if you are equipped with basic pro
 
 The deployment may involve the followings:
 
-1.  Command line interface
+1.  Command line interface, Git, Node.js, npm, and yarn are required for the deployment process.
 2.  [Git](https://git-scm.com/)
 3.  [Node.js](https://nodejs.org/)
 4.  [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/zh-Hans/docs/install)
@@ -31,7 +31,14 @@ When the latest version is unstable, you can use the image with a date tag for t
 
 ```bash
 $ docker pull diygod/rsshub:2021-06-18
-```
+
+### Common Issues and Troubleshooting
+- Issue: Image pull fails
+  - Troubleshooting Steps: Check the network connection, verify the image tag, and ensure that the specified image exists.
+- Issue: Docker daemon not running
+  - Troubleshooting Steps: Start the Docker daemon using the appropriate command for the host OS.
+- Issue: Insufficient space for image
+  - Troubleshooting Steps: Check available disk space and clean up unused images.
 
 You can back to the latest version when the code has been fixed and rebuild the image.
 
@@ -609,7 +616,16 @@ gcloud app deploy
 
 For changing the deployment project id or version id, please refer to `Deploying a service` section [here](https://cloud.google.com/appengine/docs/flexible/nodejs/testing-and-deploying-your-app).
 
-You can access your `Google App Engine URL` to check the deployment status
+## Deploy to Play with Docker
+
+If you would like to test routes or avoid IP limits, you may build your own RSSHub for free by clicking the button below.
+
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml)
+
+:::warning
+
+If deploy success but port cannot be auto-deteced，please click the `open port` button on the top and type `1200`
+-   Sometimes PWD won't work as expected. If you encounter blank screen after `Start`, or some error during initialization, please retry
 
 ## Play with Docker
 
