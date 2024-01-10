@@ -6,6 +6,11 @@ sidebar_position: 2
 
 ## Code Style
 
+### Error Handling and Troubleshooting
+
+-   Handle errors and exceptions effectively in scripts to ensure the reliability of the GitHub Actions run.
+-   Provide detailed troubleshooting steps to resolve common issues encountered during the script execution.
+
 ### General Guidelines
 
 -   **Be consistent!**
