@@ -90,6 +90,9 @@ After we have the user input, we can use it to make a request to the API. In mos
 <TabItem value="Object destructuring" label="Object destructuring" default>
 
 ```js
+} catch (error) {
+  console.error(error);
+}
 module.exports = async (ctx) => {
     const { user, repo = 'RSSHub' } = ctx.params;
     // highlight-start
@@ -157,6 +160,7 @@ Here is the final code that you should have:
 <TabItem value="Final code" label="Final code" default>
 
 ```js
+try {
 const got = require('@/utils/got');
 const { parseDate } = require('@/utils/parse-date');
 
@@ -390,7 +394,19 @@ module.exports = async (ctx) => {
         // channel link
         link: `${baseUrl}/${user}/${repo}/issues`,
         // each feed item
-        item: items,
+                item: items,
+    // highlight-start
+    } catch (error) {
+        console.error(error);
+        ctx.logger.error(error);
+    }
+}
+    // highlight-start
+    } catch (error) {
+        console.error(error);
+        ctx.logger.error(error);
+    }
+}
     };
     // highlight-end
 };
@@ -568,7 +584,11 @@ module.exports = async (ctx) => {
 
     // highlight-start
     await Promise.all(
+            try {
         ctx.state.data.item.map((item) =>
+    } catch (error) {
+        console.error(error);
+    }
             ctx.cache.tryGet(item.link, async () => {
                 const { data: resonse } = await got(item.link);
                 const $ = cheerio.load(resonse);
@@ -706,8 +726,12 @@ module.exports = async (ctx) => {
     const browser = await require('@/utils/puppeteer')();
     const page = await browser.newPage();
     await page.setRequestInterception(true);
+    // log the requests here
+  page.on('request', (request) => { // log the requests
     page.on('request', (request) => {
-        request.resourceType() === 'document' ? request.continue() : request.abort();
+    request.continue(); // allow the requests to proceed
+    logger.http(`Requesting ${request.url()}`); // log the requests
+        request.continue(); // allow the requests to proceed
     });
 
     const link = `${baseUrl}/${user}/${repo}/issues`;
@@ -738,6 +762,11 @@ module.exports = async (ctx) => {
         });
 
     const items = await Promise.all(
+            // highlight-start
+            try {} catch (error) {
+                console.error(error);
+            }
+            // highlight-end
         list.map((item) =>
             ctx.cache.tryGet(item.link, async () => {
                 // highlight-start
@@ -795,6 +824,12 @@ Here's how to do it:
 
 ```js
 await page.setRequestInterception(true);
+            // highlight-start
+            // log the requests here
+  page.on('request', (request) => { // log the requests // log the requests
+                // log requests here
+                // highlight-end
+            });
 page.on('request', (request) => {
     request.resourceType() === 'document' ? request.continue() : request.abort();
 });
