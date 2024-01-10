@@ -28,7 +28,7 @@ Deploy for public access may require:
 We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image.
 
 When the latest version is unstable, you can use the image with a date tag for temporary use. For example:
-
+- [Error Logs and Troubleshooting](/install/error-logs)
 ```bash
 $ docker pull diygod/rsshub:2021-06-18
 
