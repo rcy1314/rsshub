@@ -32,4 +32,8 @@ In the example above, we're passing the `info` object to `ctx.state.json`, which
 
 In order to quickly test if the `description` in `ctx.state.data` is correct, you can use the `.debug.html` file suffix to obtain the HTML of the corresponding entry. The link can be directly opened in the browser to preview the rendering result.
 
-Usage: Access the corresponding route + `.{index}.debug.html`, where `{index}` is the item number (starting from 0) in your `ctx.state.data.item`. And the data corresponds to the `ctx.state.data.item[index].description` information will be returned as route result.
+Usage: Access the corresponding route + `.{index}.debug.html`, where `{index}` is the item number (starting from 0) in your `url: https:///indexes/rsshub-tmp
+
+url: https:///indexes/rsshub-tmp
+
+ctx.state.data.item`. And the data corresponds to the `ctx.state.data.item[index].description` information will be returned as route result.
