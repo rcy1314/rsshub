@@ -44,8 +44,7 @@ Proxy can be configured through **Proxy URI**, **Proxy options**, or **Reverse p
 
 ### Proxy URI
 
-`PROXY_URI`: Proxy supports socks4, socks5(hostname is resolved locally, not recommanded), socks5h(hostname is
-resolved by the SOCKS server, recommanded, prevents DNS poisoning or DNS leak), http, https. See [socks-proxy-agent](https://www.npmjs.com/package/socks-proxy-agent) NPM package page. See also [cURL OOTW: SOCKS5](https://daniel.haxx.se/blog/2020/05/26/curl-ootw-socks5/).
+`RSSHUB_PROXY_URI`: Proxy supports socks4, socks5(hostname is resolved locally, not recommanded), socks5h(hostname is resolved by the SOCKS server, recommanded, prevents DNS poisoning or DNS leak), http, https. See [socks-proxy-agent](https://www.npmjs.com/package/socks-proxy-agent) NPM package page. See also [cURL OOTW: SOCKS5](https://daniel.haxx.se/blog/2020/05/26/curl-ootw-socks5/).
 
 > Proxy URI's format:
 >
@@ -69,7 +68,7 @@ This proxy method cannot proxy requests that contain cookies.
 
 :::
 
-`REVERSE_PROXY_URL`: Reverse proxy URL, RSSHub will use this URL as a prefix to initiate requests, for example `https://proxy.example.com?target=`, requests to `https://google.com` will be automatically converted to `https://proxy.example.com?target=https%3A%2F%2Fgoogle.com`
+`RSSHUB_REVERSE_PROXY_URL`: Reverse proxy URL, RSSHub will use this URL as a prefix to initiate requests, for example `https://proxy.example.com?target=`, requests to `https://google.com` will be automatically converted to `https://proxy.example.com?target=https%3A%2F%2Fgoogle.com`. This setting enables RSSHub's reverse proxy feature.
 
 You can use Cloudflare Workers to build a simple reverse proxy, for example:
 
@@ -177,7 +176,7 @@ When using our new config, please leave the following environment vairable blank
 
 :::
 
-`HOTLINK_TEMPLATE`: replace image URL in the description to avoid anti-hotlink protection, leave it blank to disable this function. Usage reference [#2769](https://github.com/DIYgod/RSSHub/issues/2769). You may use any property listed in [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL#Properties) (suffixing with `_ue` results in URL encoding), format of JS template literal. e.g. `${protocol}//${host}${pathname}`, `https://i3.wp.com/${host}${pathname}`, `https://images.weserv.nl?url=${href_ue}`
+`RSSHUB_HOTLINK_TEMPLATE`: replace image URL in the description to avoid anti-hotlink protection, leave it blank to disable this function. Usage reference [#2769](https://github.com/DIYgod/RSSHub/issues/2769). You may use any property listed in [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL#Properties) (suffixing with `_ue` results in URL encoding), format of JS template literal. e.g. `${protocol}//${host}${pathname}`, `https://i3.wp.com/${host}${pathname}`, `https://images.weserv.nl?url=${href_ue}`
 
 `HOTLINK_INCLUDE_PATHS`: limit the routes to be processed, only matched routes will be processed. Set multiple values with comma `,` as delimiter. If not set, all routes will be processed
 
@@ -207,7 +206,16 @@ Configs in this sections are in beta stage, and **are turn off by default**. Ple
 
 `ALLOW_USER_SUPPLY_UNSAFE_DOMAIN`: allow users to provide a domain as a parameter to routes that are not in their allow list, respectively. Public instances are suggested to leave this value default, as it may lead to [Server-Side Request Forgery (SSRF)](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)
 
-## Other Application Configurations
+## Configuring RSSHub Dependencies
+
+### Redis
+To set up and configure Redis for RSSHub, use the following environment variable:
+- `REDIS_URL`: Redis target address (invalid when `CACHE_TYPE` is set to memory), default to `redis://localhost:6379/`
+
+### Puppeteer
+To set up and configure Puppeteer for RSSHub, use the following environment variables:
+- `PUPPETEER_WS_ENDPOINT`: browser WebSocket endpoint which can be used as an argument to puppeteer.connect, refer to [browserWSEndpoint](https://pptr.dev/api/puppeteer.browser.wsendpoint)
+- `CHROMIUM_EXECUTABLE_PATH`: path to the Chromium (or Chrome) executable. If puppeteer is not bundled with Chromium (manually skipped downloading or system architecture is arm/arm64), configuring this can effectively enable puppeteer. Or alternatively, if you prefer Chrome to Chromium, this configuration will help. **WARNING**: only effective when `PUPPETEER_WS_ENDPOINT` is not set; only useful for manual deployment, for Docker, please use the `chromium-bundled` image instead.
 
 `DISALLOW_ROBOT`: prevent indexing by search engine, default to enable, set false or 0 to disable
 
