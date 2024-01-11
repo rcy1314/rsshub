@@ -334,7 +334,7 @@ Under `RSSHub`'s root directory, execute the following commands to launch
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-pnpm start
+ppnpm start
 ```
 
 </TabItem>
