@@ -287,6 +287,10 @@ sudo ansible-playbook rsshub.yaml
 
 The most direct way to deploy `RSSHub`, you can follow the steps below to deploy`RSSHub` on your computer, server or anywhere.
 
+## GitHub Actions Workflow Installation
+
+## GitHub Actions Workflow Installation
+
 ### Install
 
 Execute the following commands to download the source code
@@ -296,7 +300,7 @@ $ git clone https://github.com/DIYgod/RSSHub.git
 $ cd RSSHub
 ```
 
-Execute the following commands to install dependencies (Do not add the `--production` parameter for development).
+Execute the following commands to install dependencies using the package manager specified in the workflow.
 
 <Tabs groupId="package-manager">
 <TabItem value="pnpm" label="pnpm" default>
