@@ -36,7 +36,7 @@ const { parseDate } = require('@/utils/parse-date');
 module.exports = async (ctx) => {
     // Your logic here
 
-    ctx.state.data = {
+    ctx.state.data = {\n    title: `${user}/${repo} issues`,\n    link: `https://github.com/${user}/${repo}/issues`,
         // Your RSS output here
     };
 };
@@ -73,7 +73,7 @@ module.exports = async (ctx) => {
     const repo = ctx.params.repo ?? 'RSSHub';
     // highlight-end
 
-    ctx.state.data = {
+    ctx.state.data = {\n        title: `${user}/${repo} issues`,\n        link: `https://github.com/${user}/${repo}/issues`,
         // Your RSS output here
     };
 };
@@ -112,7 +112,7 @@ module.exports = async (ctx) => {
     }
     // highlight-end
 
-    ctx.state.data = {
+    ctx.state.data = {\n        title: `${user}/${repo} issues`,\n        link: `https://github.com/${user}/${repo}/issues`,
         // Your RSS output here
     };
 };
@@ -146,7 +146,7 @@ module.exports = async (ctx) => {
     const data = response.data;
     // highlight-end
 
-    ctx.state.data = {
+    ctx.state.data = {\n        title: `${user}/${repo} issues`,\n        link: `https://github.com/${user}/${repo}/issues`,
         // Your RSS output here
     };
 };
