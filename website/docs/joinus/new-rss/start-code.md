@@ -109,6 +109,7 @@ module.exports = async (ctx) => {
             per_page: ctx.query.limit ? parseInt(ctx.query.limit, 10) : 30,
         },
     });
+    }
     // highlight-end
 
     ctx.state.data = {
@@ -126,7 +127,14 @@ module.exports = async (ctx) => {
     const repo = ctx.params.repo ?? 'RSSHub';
     // highlight-start
     // Send an HTTP GET request to the API
-    const response = await got(`https://api.github.com/repos/${user}/${repo}/issues`, {
+        const { data } = await got(`https://api.github.com/repos/${user}/${repo}/issues`, {
+        headers: {
+            accept: 'application/vnd.github.html+json',
+        },
+        searchParams: {
+            per_page: ctx.query.limit ? parseInt(ctx.query.limit, 10) : 30,
+        },
+    });
         headers: {
             accept: 'application/vnd.github.html+json',
         },
@@ -313,6 +321,7 @@ To begin, we'll make an HTTP GET request to the API and load the HTML response i
     // highlight-start
     const { data: response } = await got(`${baseUrl}/${user}/${repo}/issues`);
     const $ = cheerio.load(response);
+    }
     // highlight-end
 ```
 
