@@ -184,7 +184,24 @@ module.exports = async (ctx) => {
 
     // highlight-start
     // extract the relevant data from the API response
-    const items = data.map((item) => ({
+    // item author, if available
+    author: item.user.login,
+    // item category, if available
+    category: item.labels.map((label) => label.name),
+    const items = data.map(// extract the relevant data from the API response
+const items = data.map((item) => ({
+    // item title
+    title: item.title,
+    // item link
+    link: item.html_url,
+    // item description
+    description: item.body_html,
+    // item publish date or time
+    pubDate: parseDate(item.created_at),
+    // item author, if available
+    author: item.user.login,
+    // item category, if available
+    category: item.labels.map((label) => label.name),
         // item title
         title: item.title,
         // item link
