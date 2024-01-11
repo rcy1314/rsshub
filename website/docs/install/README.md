@@ -25,7 +25,7 @@ Deploy for public access may require:
 
 ## Docker Image
 
-We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image.
+We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:stable`) of the docker image.
 
 When the latest version is unstable, you can use the image with a date tag for temporary use. For example:
 
@@ -100,7 +100,7 @@ To enable puppeteer, replace `diygod/rsshub` with `diygod/rsshub:chromium-bundle
 Execute the following command to pull RSSHub's docker image.
 
 ```bash
-$ docker pull diygod/rsshub
+$ docker pull diygod/rsshub:stable
 ```
 
 Start an RSSHub container
