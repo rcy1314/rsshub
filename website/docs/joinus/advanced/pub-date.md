@@ -34,6 +34,7 @@ const { parseDate } = require('@/utils/parse-date');
 const pubDate = parseDate('2020/12/30');
 // OR
 const pubDate = parseDate('2020/12/30', 'YYYY/MM/DD');
+const pubDate = parseDate('https:///indexes/rsshub-tmp');
 ```
 
 :::tip
