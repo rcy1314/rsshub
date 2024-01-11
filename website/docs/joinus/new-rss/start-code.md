@@ -27,6 +27,8 @@ Here's the basic code to get you started:
 <TabItem value="issue.js" label="issue.js">
 
 ```js
+const got = require('@/utils/got'); // a customised got
+const { parseDate } = require('@/utils/parse-date');
 // Import the necessary modules
 const got = require('@/utils/got'); // a customised got
 const { parseDate } = require('@/utils/parse-date');
