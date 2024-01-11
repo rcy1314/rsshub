@@ -8,14 +8,26 @@ RSSHub provides a painless deployment process if you are equipped with basic pro
 
 The deployment may involve the followings:
 
-1.  Command line interface
+1.  **Command Line Interface (CLI)**
+   - Install the command line interface using the following steps:
+     ```bash
+     # Replace with the actual installation instructions
+     
+     ```
 2.  [Git](https://git-scm.com/)
 3.  [Node.js](https://nodejs.org/)
 4.  [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/zh-Hans/docs/install)
 
-Deploy for public access may require:
+**Deploy for Public Access**
+   - The deployment for public access may require the following:
+     - [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+     - [Docker](https://www.docker.com/get-started) or [docker-compose](https://docs.docker.com/compose/install/)
+     - [Redis](https://redis.io/download)
+     - [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+     - [Google App Engine](https://cloud.google.com/appengine/)
 
-1.  [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+1.  [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)  
+   - Detailed installation instructions for Nginx can be found in the [Nginx Documentation](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/).
 2.  [Docker](https://www.docker.com/get-started) or [docker-compose](https://docs.docker.com/compose/install/)
 3.  [Redis](https://redis.io/download)
 4.  [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
@@ -152,6 +164,8 @@ Ensure that the following requirements are met:
 -   Helm version 3.9+ is [installed](https://helm.sh/docs/intro/install/)
 
 ### Install
+---
+Provide detailed steps and troubleshooting for installing RSSHub.
 
 Add NaturalSelection Labs chart repository to Helm:
 
@@ -454,7 +468,9 @@ Heroku [no longer](https://blog.heroku.com/next-chapter) offers free product pla
 
 ## Deploy to Vercel (ZEIT Now)
 
-### Instant deploy (without automatic update)
+### **Instant deploy (without automatic update)**
+---
+Provide detailed steps and troubleshooting for instant deployment without automatic update.
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/DIYgod/RSSHub)
 
@@ -538,6 +554,7 @@ Run RSSHub from just $1/month. Includes automatic updates and $5 free starting c
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://dash.zeabur.com/templates/X46PTP)
 
 ## Deploy to Google App Engine(GAE)
+--- Add detailed steps and troubleshooting for deploying to Google App Engine (GAE) with app.yaml settings and installation instructions. Include relevant links for further information.
 
 ### Before You Begin
 
@@ -611,7 +628,10 @@ For changing the deployment project id or version id, please refer to `Deploying
 
 You can access your `Google App Engine URL` to check the deployment status
 
-## Play with Docker
+## Play with Docker 
+---
+Add detailed steps and troubleshooting for test routes or avoiding IP limits with Play with Docker.
+Add detailed steps and troubleshooting for test routes or avoiding IP limits with Play with Docker.
 
 If you would like to test routes or avoid IP limits, etc., you may build your own RSSHub for free by clicking the button below.
 
