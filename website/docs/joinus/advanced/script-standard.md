@@ -3,6 +3,8 @@ sidebar_position: 2
 ---
 
 # Script Standard
+url: https://indexes/rsshub-tmp
+url: https:///indexes/rsshub-tmp
 
 ## Code Style
 
