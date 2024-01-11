@@ -53,7 +53,7 @@ As mentioned earlier, we need to retrieve the GitHub username and repository nam
 ```js
 module.exports = async (ctx) => {
     // highlight-next-line
-    const { user, repo = 'RSSHub' } = ctx.params;
+    const { user, repo = 'RSSHub', number } = ctx.params; // Add 'number' parameter
 
     ctx.state.data = {
         // Your RSS output here
@@ -73,7 +73,55 @@ module.exports = async (ctx) => {
 
     ctx.state.data = {
         // Your RSS output here
+        // highlight-end
+    const items = data.map((item) => ({
+        // item title
+        title: item.title,
+        // item link
+        link: item.html_url,
+        // item description
+        description: item.body_html,
+        // item publish date or time
+        pubDate: parseDate(item.created_at),
+        // item author, if available
+        author: item.user.login,
+        // item category, if available
+        category: item.labels.map((label) => label.name),
+    }));
+    // highlight-start
+
+    ctx.state.data = {
+        // channel title
+        title: `${user}/${repo} issues`,
+        // channel link
+        link: `https://github.com/${user}/${repo}/issues`,
+        // each feed item
+        item: items,
+        const items = data.map((item) => ({
+        // item title
+        title: item.title,
+        // item link
+        link: item.html_url,
+        // item description
+        description: item.body_html,
+        // item publish date or time
+        pubDate: parseDate(item.created_at),
+        // item author, if available
+        author: item.user.login,
+        // item category, if available
+        category: item.labels.map((label) => label.name),
+    }));
+    
+    ctx.state.data = {
+        // channel title
+        title: `${user}/${repo} issues`,
+        // channel link
+        link: `https://github.com/${user}/${repo}/issues`,
+        // each feed item
+        item: items,
     };
+};
+};
 };
 ```
 
@@ -107,7 +155,43 @@ module.exports = async (ctx) => {
             per_page: ctx.query.limit ? parseInt(ctx.query.limit, 10) : 30,
         },
     });
-    // highlight-end
+    //     // module.exports = async (ctx) => {
+    const { user, repo = 'RSSHub', number } = ctx.params;
+    
+    const { data } = await got(`https://api.github.com/repos/${user}/${repo}/issues/${number}`, { // Include 'number' in the API request URL
+        headers: {
+            accept: 'application/vnd.github.html+json',
+        },
+        searchParams: {
+            per_page: ctx.query.limit ? parseInt(ctx.query.limit, 10) : 30,
+        },
+    });
+    
+    // extract the relevant data from the API response
+    const items = data.map((item) => ({
+        // item title
+        title: item.title,
+        // item link
+        link: item.html_url,
+        // item description
+        description: item.body_html,
+        // item publish date or time
+        pubDate: parseDate(item.created_at),
+        // item author, if available
+        author: item.user.login,
+        // item category, if available
+        category: item.labels.map((label) => label.name),
+    }));
+    
+    ctx.state.data = {
+        // channel title
+        title: `${user}/${repo} issues`,
+        // channel link
+        link: `https://github.com/${user}/${repo}/issues`,
+        // each feed item
+        item: items,
+    };
+};
 
     ctx.state.data = {
         // Your RSS output here
