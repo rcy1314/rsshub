@@ -58,7 +58,8 @@ $ vi docker-compose.yml  # or your favorite editor
 Create a docker volume to persist Redis caches
 
 ```bash
-$ docker volume create redis-data
+$ # Create a docker volume to persist Redis caches
+docker volume create redis-data
 ```
 
 Launch
@@ -127,6 +128,10 @@ $ docker rm rsshub
 ```
 
 Then repeat the installation steps
+
+### Configuration
+
+The simplest way to configure RSSHub container is via system environment variables.
 
 ### Configuration
 
