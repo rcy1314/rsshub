@@ -526,7 +526,7 @@ and execute `fly deploy` (if use the second install method) to trigger a redeplo
 
 Run RSSHub from just $1/month. Includes automatic updates and $5 free starting credit.
 
-[![Run on PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?run=rsshub)
+[![Run on PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?rss=rsshub)
 
 ## Deploy to Zeabur
 
