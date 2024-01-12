@@ -601,7 +601,17 @@ module.exports = async (ctx) => {
     // Your logic here
 
     ctx.state.data = {
-        // Your RSS output here
+            const baseURL = `https://github.com/${user}/${repo}`;
+
+    ctx.state.data = 
+    {
+        title: `${user}/${repo} issues`,
+        link: `${baseURL}/issues`,
+        item: items,
+    };
+
+    await browser.close();
+}
     };
 };
 ```
