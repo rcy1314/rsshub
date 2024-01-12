@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      - name: Build and deploy Docker Compose
+        run: |
+          docker-compose up -d
+
+      - name: Run tests
+        run: |
+          docker-compose exec app npm run test
+
+      - name: Stop Docker Compose
+        run: |
+          docker-compose down
+
+      - name: Clean up
+        run: |
+          docker system prune -f
