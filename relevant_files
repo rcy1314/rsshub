@@ -1,0 +1,102 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add necessary steps for the deployment based on the specified deployment method
+
+      # Docker deployment
+      - name: Pull Docker image
+        run: docker pull diygod/rsshub:latest
+
+      # Kubernetes deployment
+      - name: Configure Helm Chart
+        run: helm upgrade --install my-release nsl/rsshub
+
+      # Ansible deployment
+      - name: Configure Ansible playbook
+        run: ansible-playbook rsshub.yaml
+
+      # Manual deployment
+      - name: Install dependencies
+        run: npm install
+
+      # Add any other necessary steps for the deployment
+
+      - name: Deploy
+        run: |
+          # Add deployment command or script here
+```
+
+File: `website/docs/install/README.md`
+
+```markdown
+## Deploying with Helm CLI
+
+To deploy RSSHub using Helm CLI, follow these steps:
+
+1. Install Helm CLI if you haven't already. Refer to the [Helm documentation](https://helm.sh/docs/intro/install/) for installation instructions.
+
+2. Add the NaturalSelection Labs chart repository to Helm:
+
+   ```bash
+   helm repo add nsl https://naturalselectionlabs.github.io/helm-charts
+   ```
+
+3. Update the chart repository:
+
+   ```bash
+   helm repo update
+   ```
+
+4. Install RSSHub using the Helm CLI:
+
+   ```bash
+   helm install my-release nsl/rsshub \
+     --set="image.tag=2023-12-04" \
+     --set="replicaCount=2"
+   ```
+
+   Replace `my-release` with the desired release name. You can customize other values as needed.
+
+5. Wait for the deployment to complete. You can check the status using the following command:
+
+   ```bash
+   helm status my-release
+   ```
+
+   Replace `my-release` with the release name used in the previous step.
+
+6. Once the deployment is successful, you can access RSSHub using the configured URL.
+
+   ```bash
+   http://<your-rsshub-url>
+   ```
+
+   Replace `<your-rsshub-url>` with the URL configured for your RSSHub deployment.
+
+7. To update the RSSHub deployment, use the following command:
+
+   ```bash
+   helm upgrade my-release nsl/rsshub
+   ```
+
+   Replace `my-release` with the release name used in the previous steps.
+
+8. To uninstall the RSSHub deployment, use the following command:
+
+   ```bash
+   helm uninstall my-release
+   ```
+
+   Replace `my-release` with the release name used in the previous steps.
