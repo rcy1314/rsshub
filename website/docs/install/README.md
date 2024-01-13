@@ -4,7 +4,7 @@ sidebar: auto
 
 # Deployment
 
-RSSHub provides a painless deployment process if you are equipped with basic programming knowledge, you may open an [issue](https://github.com/DIYgod/RSSHub/issues/new/choose) if you believe you have encountered a problem not listed [here](https://github.com/DIYgod/RSSHub/issues), the community will try to sort it out asap.
+RSSHub provides a painless deployment process if you are equipped with basic programming knowledge. If you believe you have encountered a problem not listed [here](https://github.com/DIYgod/RSSHub/issues), the community will try to sort it out asap. You may also refer to the [Docker Compose Deployment section](#docker-compose-deployment) for information on Docker Compose deployment.
 
 The deployment may involve the followings:
 
@@ -33,7 +33,7 @@ When the latest version is unstable, you can use the image with a date tag for t
 $ docker pull diygod/rsshub:2021-06-18
 ```
 
-You can back to the latest version when the code has been fixed and rebuild the image.
+You can revert to the latest version when the code has been fixed and rebuild the image in the format:
 
 To enable puppeteer, `diygod/rsshub:chromium-bundled` is a good choice. If date specified, it will become: `diygod/rsshub:chromium-bundled-2021-06-18`.
 
@@ -73,6 +73,9 @@ Remove old containers
 
 ```bash
 $ docker-compose down
+
+# Repull the latest image if you have downloaded the image before. It is helpful to resolve some issues. For example:
+$ docker pull diygod/rsshub
 ```
 
 Repull the latest image if you have downloaded the image before. It is helpful to resolve some issues.
@@ -106,10 +109,10 @@ $ docker pull diygod/rsshub
 Start an RSSHub container
 
 ```bash
-$ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
+$ docker run -d --name rsshub -p 1200:1200 -e CACHE_EXPIRE=3600 diygod/rsshub
 ```
 
-Visit [http://127.0.0.1:1200](http://127.0.0.1:1200), and enjoy it! ✅
+Visit [http://127.0.0.1:1200](http://127.0.0.1:1200) to access RSSHub. ✅
 
 Execute the following command to stop `RSSHub`.
 
@@ -130,7 +133,7 @@ Then repeat the installation steps
 
 ### Configuration
 
-The simplest way to configure RSSHub container is via system environment variables.
+Configure the RSSHub container using system environment variables. For example, add `-e CACHE_EXPIRE=3600` to set the cache time to 1 hour. To configure more options, refer to the [Configuration](#configuration) section.
 
 For example, adding `-e CACHE_EXPIRE=3600` will set the cache time to 1 hour.
 
@@ -256,7 +259,7 @@ To configure more values please refer to [RSSHub Helm Chart](https://github.com/
 
 ## Ansible Deployment
 
-This Ansible playbook includes RSSHub, Redis, browserless (uses Docker) and Caddy 2
+This Ansible playbook includes RSSHub, Redis, browserless (uses Docker) and Caddy 2. This Ansible playbook includes RSSHub, Redis, browserless (uses Docker) and Caddy 2
 
 Currently only support Ubuntu 20.04
 
@@ -545,7 +548,7 @@ Follow the [official guide](https://cloud.google.com/appengine/docs/flexible/nod
 
 Please note, GAE free tier doesn't support Flexible Environment, please check the pricing plan prior to deployment.
 
-Node.js standard environment is still under beta, unknown or unexpected errors might be encountered during the deployment.
+The Node.js standard environment is still in beta, and unknown or unexpected errors might be encountered during the deployment if you choose this option.
 
 Execute `git clone https://github.com/DIYgod/RSSHub.git` to pull the latest code
 
