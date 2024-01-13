@@ -196,6 +196,9 @@ helm delete my-release
 helm install my-release nsl/rsshub \
   --set="image.tag=2023-12-04" \
   --set="replicaCount=2"
+
+### [Deploying with Helm CLI](#deploying-with-helm-cli)
+Refer to this section for detailed instructions on deploying with Helm CLI.
 ```
 
 </TabItem>
@@ -411,7 +414,18 @@ Then repeat the installation steps.
 
 ### A tip for Nix users
 
-To install nodejs, yarn and jieba (to build documentation) you can use the following `nix-shell` configuration script.
+To install nodejs, yarn, and jieba for building documentation, you can use the following `nix-shell` configuration script:
+
+```nix
+let
+    pkgs = import <nixpkgs> {};
+    node = pkgs.nodejs-12_x;
+in pkgs.stdenv.mkDerivation {
+    name = "nodejs-yarn-jieba";
+    buildInputs = [node pkgs.yarn pkgs.pythonPackages.jieba];
+```
+
+Refer to the [Nix Installation Guide](https://nixos.org/guides/installing_nix.html) for detailed installation and setup instructions.
 
 ```nix
 let
