@@ -79,7 +79,11 @@ To create a Docker volume to persist Redis caches, use the following command:
 $ docker volume create redis-data
 ```
 
-Launch
+Remove old containers
+
+```bash
+$ docker-compose down
+```
 
 ```bash
 $ docker-compose up -d
