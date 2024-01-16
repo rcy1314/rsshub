@@ -37,13 +37,31 @@ You can revert to the latest version and rebuild the image by pulling the latest
 
 To enable puppeteer, `diygod/rsshub:chromium-bundled` is a good choice. If date specified, it will become: `diygod/rsshub:chromium-bundled-2021-06-18`.
 
-Another approach to enable puppeteer is deploying with Docker Compose. However, it consumes more disk space and memory. By modifying `docker-compose.yml`, you can use `diygod/rsshub:chromium-bundled` instead to reduce the disk space and memory consumption.
+Another approach to enable puppeteer is deploying with Docker Compose. However, it consumes more disk space and memory.
+
+By modifying `docker-compose.yml`, you can use `diygod/rsshub:chromium-bundled` instead to reduce the disk space and memory consumption. By modifying `docker-compose.yml`, you can use `diygod/rsshub:chromium-bundled` instead to reduce the disk space and memory consumption.
 
 ## Docker Compose Deployment
 
 ### Install
 
-Download [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml)
+Replace the image in the `docker-compose.yml` file with `diygod/rsshub:chromium-bundled`. Here are the contents of the `docker-compose.yml` file.
+```yaml
+version: '3'
+services:
+  rsshub:
+    image: diygod/rsshub:chromium-bundled
+    ports:
+      - 1200:1200
+    volumes:
+      - redis-data:/data
+    command: yarn start
+    environment:
+      CACHE_TYPE: redis
+      CACHE_EXPIRE: 3600
+      GITHUB_ACCESS_TOKEN: example
+volumes:
+  redis-data:
 
 ```bash
 $ wget https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml
@@ -91,7 +109,7 @@ Edit `environment` in [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob
 
 :::tip
 
-To enable puppeteer, replace `diygod/rsshub` with `diygod/rsshub:chromium-bundled` in **EACH** command.
+To enable puppeteer, replace `diygod/rsshub` with `diygod/rsshub:chromium-bundled` in **EACH** command, which can reduce disk space and memory consumption.
 
 :::
 
@@ -100,7 +118,7 @@ To enable puppeteer, replace `diygod/rsshub` with `diygod/rsshub:chromium-bundle
 Execute the following command to pull RSSHub's docker image.
 
 ```bash
-$ docker pull diygod/rsshub
+$ docker pull diygod/rsshub:chromium-bundled
 ```
 
 Start an RSSHub container
