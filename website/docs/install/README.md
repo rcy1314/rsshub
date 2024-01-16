@@ -73,7 +73,7 @@ Check if any configuration needs to be changed
 $ vi docker-compose.yml  # or your favorite editor
 ```
 
-Create a docker volume to persist Redis caches
+To create a Docker volume to persist Redis caches, use the following command:
 
 ```bash
 $ docker volume create redis-data
