@@ -21,6 +21,10 @@ Different sites have different APIs. You can check the API documentation for the
 
 Open your code editor and create a new file. Since we are going to create an RSS feed for GitHub issues, it is suggested that you save the file as `issue.js`, but you can name it whatever you like.
 
+// import necessary modules
+const got = require('@/utils/got');
+const { parseDate } = require('@/utils/parse-date');
+
 Here's the basic code to get you started:
 
 <Tabs>
