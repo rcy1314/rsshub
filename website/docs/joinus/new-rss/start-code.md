@@ -70,7 +70,38 @@ module.exports = async (ctx) => {
 
 ```js
 module.exports = async (ctx) => {
-    // highlight-start
+    const { user, repo = 'RSSHub' } = ctx.params;
+
+    try {
+        const { data } = await got(`https://api.github.com/repos/${user}/${repo}/issues`, {
+            headers: {
+                accept: 'application/vnd.github.html+json',
+            },
+            searchParams: {
+                per_page: ctx.query.limit ? parseInt(ctx.query.limit, 10) : 30,
+            },
+        });
+
+        const items = data.map((item) => ({
+            title: item.title,
+            link: item.html_url,
+            description: item.body_html,
+            pubDate: parseDate(item.created_at),
+            author: item.user.login,
+            category: item.labels.map((label) => label.name),
+        }));
+
+        ctx.state.data = {
+            title: `${user}/${repo} issues`,
+            link: `https://github.com/${user}/${repo}/issues`,
+            item: items,
+        };
+    } catch (error) {
+        console.error(error);
+        ctx.state.data = {
+            message: 'Error fetching data from the GitHub API',
+        };
+    }
     const user = ctx.params.user;
     const repo = ctx.params.repo ?? 'RSSHub';
     // highlight-end
