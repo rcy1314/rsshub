@@ -76,6 +76,16 @@ module.exports = async ({ github, context, core }) => {
             .catch((e) => {
                 core.warning(e);
             });
+
+const updateLabels = (labels) =>
+        github.rest.issues
+            .updateLabels({
+                ...issue_facts,
+                labels,
+            })
+            .catch((e) => {
+                core.warning(e);
+            });
     const updateIssueState = (state) =>
         github.rest.issues
             .update({
@@ -103,7 +113,7 @@ module.exports = async ({ github, context, core }) => {
         return;
     }
 
-    const maintainers = await getMaintainersByRoutes(routes, core);
+    const maintainers = await getMaintainersByRoutes(routes, core, github);
 
     let successCount = 0;
     let emptyCount = 0;
@@ -125,7 +135,7 @@ module.exports = async ({ github, context, core }) => {
             continue;
         }
 
-        if (main.length > 0) {
+        if (maintainers && main.length > 0) {
             const pingStr = main
                 .map((e) => {
                     if (e in dndUsernames) {
