@@ -40,7 +40,7 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
             });
 
     const updatePrState = (state) =>
-        github.rest.pulls
+        github.rest.issues
             .update({
                 ...prFacts,
                 state,
@@ -63,7 +63,14 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
         const logUrl = `${process.env.GITHUB_SERVER_URL}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
         if (process.env.PULL_REQUEST) {
-            return createComment(`Auto Route Test failed, please check your PR body format and reopen pull request. Check [logs](${logUrl}) for more details.
+            return createComment = (body) => github.rest.issues
+            .createComment({
+                ...issueFacts,
+                body,
+            })
+            .catch((e) => {
+                core.warning(e);
+            })(`Auto Route Test failed, please check your PR body format and reopen pull request. Check [logs](${logUrl}) for more details.
         自动路由测试失败，请确认 PR 正文部分符合格式规范并重新开启，详情请检查 [日志](${logUrl})。`);
         }
 
