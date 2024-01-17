@@ -25,7 +25,7 @@ Deploy for public access may require:
 
 ## Docker Image
 
-We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image.
+We recommend using the latest stable version `diygod/rsshub` of the docker image.
 
 When the latest version is unstable, you can use the image with a date tag for temporary use. For example:
 
