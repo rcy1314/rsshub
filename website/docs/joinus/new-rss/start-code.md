@@ -63,7 +63,6 @@ module.exports = async (ctx) => {
 
 </TabItem>
 <TabItem value="Traditional assignment" label="Traditional assignment">
-
 ```js
 module.exports = async (ctx) => {
     // highlight-start
