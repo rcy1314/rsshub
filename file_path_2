@@ -1,0 +1,43 @@
+// file_path_2
+
+const fs = require('fs');
+
+// Read the existing package.json file
+const packageJsonData = fs.readFileSync('package.json', 'utf8');
+
+// Parse the JSON data into an object
+const packageJsonObj = JSON.parse(packageJsonData);
+
+// Function to update a dependency version
+function updateDependencyVersion(dependencyName, latestVersion) {
+  packageJsonObj.dependencies[dependencyName] = latestVersion;
+}
+
+// Function to update a devDependency version
+function updateDevDependencyVersion(dependencyName, latestVersion) {
+  packageJsonObj.devDependencies[dependencyName] = latestVersion;
+}
+
+// Check and update dependencies
+for (const dependencyName in packageJsonObj.dependencies) {
+  const currentVersion = packageJsonObj.dependencies[dependencyName];
+  const latestVersion = getLatestVersion(dependencyName); // Implement a function to get the latest version using a package manager command
+  if (currentVersion !== latestVersion) {
+    updateDependencyVersion(dependencyName, latestVersion);
+  }
+}
+
+// Check and update devDependencies
+for (const dependencyName in packageJsonObj.devDependencies) {
+  const currentVersion = packageJsonObj.devDependencies[dependencyName];
+  const latestVersion = getLatestVersion(dependencyName); // Implement a function to get the latest version using a package manager command
+  if (currentVersion !== latestVersion) {
+    updateDevDependencyVersion(dependencyName, latestVersion);
+  }
+}
+
+// Convert the updated package.json object back to JSON format
+const updatedPackageJsonData = JSON.stringify(packageJsonObj, null, 2);
+
+// Write the updated JSON data to the package.json file
+fs.writeFileSync('package.json', updatedPackageJsonData);
