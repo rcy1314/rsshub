@@ -13,7 +13,7 @@ The deployment may involve the followings:
 3.  [Node.js](https://nodejs.org/)
 4.  [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/zh-Hans/docs/install)
 
-Deploy for public access may require:
+Deploy for public access requires the following tools and services:
 
 1.  [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
 2.  [Docker](https://www.docker.com/get-started) or [docker-compose](https://docs.docker.com/compose/install/)
@@ -43,7 +43,7 @@ Another approach to enable puppeteer is deploying with Docker Compose. However, 
 
 ### Install
 
-Download [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml)
+Download the [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml) file from the RSSHub repository:
 
 ```bash
 $ wget https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml
@@ -58,7 +58,7 @@ $ vi docker-compose.yml  # or your favorite editor
 Create a docker volume to persist Redis caches
 
 ```bash
-$ docker volume create redis-data
+Create a Docker volume to persist Redis caches by running the command:
 ```
 
 Launch
@@ -111,7 +111,7 @@ $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
 
 Visit [http://127.0.0.1:1200](http://127.0.0.1:1200), and enjoy it! ✅
 
-Execute the following command to stop `RSSHub`.
+Run the following command to stop the `RSSHub` container:
 
 ```bash
 $ docker stop rsshub
@@ -138,7 +138,7 @@ For example, adding `-e CACHE_EXPIRE=3600` will set the cache time to 1 hour.
 $ docker run -d --name rsshub -p 1200:1200 -e CACHE_EXPIRE=3600 -e GITHUB_ACCESS_TOKEN=example diygod/rsshub
 ```
 
-This deployment method does not include puppeteer (unless using `diygod/rsshub:chromium-bundled` instead) and Redis dependencies. Use the Docker Compose deployment method or deploy external dependencies yourself if you need it.
+This deployment method does not include puppeteer, unless using `diygod/rsshub:chromium-bundled` instead, and Redis dependencies are not included. Use the Docker Compose deployment method or deploy external dependencies yourself if needed. (unless using `diygod/rsshub:chromium-bundled` instead) and Redis dependencies. Use the Docker Compose deployment method or deploy external dependencies yourself if you need it.
 
 To configure more options please refer to [Configuration](#configuration).
 
@@ -230,7 +230,7 @@ puppeteer:
 ```yaml
 autoscaling:
   enabled: true
-  minReplicas: 3
+  For high-availability mode with autoscaling, set `minReplicas` to your preferred minimum number of instances:
 
 puppeteer:
   autoscaling:
@@ -256,7 +256,7 @@ To configure more values please refer to [RSSHub Helm Chart](https://github.com/
 
 ## Ansible Deployment
 
-This Ansible playbook includes RSSHub, Redis, browserless (uses Docker) and Caddy 2
+This Ansible playbook includes RSSHub, Redis, Browserless (using Docker), and Caddy 2, and supports Ubuntu 20.04.
 
 Currently only support Ubuntu 20.04
 
@@ -289,7 +289,7 @@ The most direct way to deploy `RSSHub`, you can follow the steps below to deploy
 
 ### Install
 
-Execute the following commands to download the source code
+Run the following commands to download the source code of RSSHub:
 
 ```bash
 $ git clone https://github.com/DIYgod/RSSHub.git
@@ -344,7 +344,7 @@ $ yarn start
 <TabItem value="npm" label="npm">
 
 ```bash
-$ npm start
+To start RSSHub using npm, run:
 ```
 
 </TabItem>
@@ -358,7 +358,7 @@ $ pm2 start lib/index.js --name rsshub
 
 Visit [http://127.0.0.1:1200/](http://127.0.0.1:1200/), and enjoy it! ✅
 
-Refer to our [Guide](https://docs.rsshub.app/) for usage. Replace `https://rsshub.app/` with `http://localhost:1200` in any route example to see the effect.
+Refer to the [RSSHub guide](https://docs.rsshub.app/) for usage, and remember to replace `https://rsshub.app/` with `http://localhost:1200` in any route example to see the effect. Replace `https://rsshub.app/` with `http://localhost:1200` in any route example to see the effect.
 
 ### Configuration
 
@@ -404,7 +404,7 @@ To configure more options please refer to [Configuration](#configuration).
 Under `RSSHub`'s directory, execute the following commands to pull the latest source code for `RSSHub`
 
 ```bash
-$ git pull
+After updating the RSSHub source code, run the following command to pull the latest changes:
 ```
 
 Then repeat the installation steps.
@@ -439,7 +439,7 @@ Heroku [no longer](https://blog.heroku.com/next-chapter) offers free product pla
 
 :::
 
-~~Heroku accounts with unverified payment methods have only 550 hours of credit per month (about 23 days), and up to 1,000 hours per month with verified payment methods.~~
+Please note that Heroku accounts with unverified payment methods now have limited free hours for application usage.
 
 ### Instant deploy (without automatic update)
 
@@ -524,7 +524,7 @@ and execute `fly deploy` (if use the second install method) to trigger a redeplo
 
 ## Deploy to PikaPods
 
-Run RSSHub from just $1/month. Includes automatic updates and $5 free starting credit.
+Deploy RSSHub on PikaPods for just $1/month, which includes automatic updates and $5 free starting credit.
 
 [![Run on PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?run=rsshub)
 
@@ -553,7 +553,7 @@ Execute `git clone https://github.com/DIYgod/RSSHub.git` to pull the latest code
 
 #### Deploy to Flexible Environment
 
-Under RSSHub's root directory, create a file `app.yaml` with the following content:
+Modify the `app.yaml` file with the following content depending on which App Engine environment you are deploying to.
 
 ```yaml
 # [START app_yaml]
@@ -604,7 +604,7 @@ env_variables:
 Under RSSHub's root directory, execute the following commands to launch RSSHub
 
 ```bash
-gcloud app deploy
+To deploy RSSHub to Google App Engine, run the following command:
 ```
 
 For changing the deployment project id or version id, please refer to `Deploying a service` section [here](https://cloud.google.com/appengine/docs/flexible/nodejs/testing-and-deploying-your-app).
