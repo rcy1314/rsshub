@@ -1,0 +1,47 @@
+# Specify the base image
+FROM node:14
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy the application code
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Set the command to start the application
+CMD [ "npm", "start" ]
+```
+
+docker-compose.yml:
+```
+version: '3.9'
+
+services:
+  rsshub:
+    image: diygod/rsshub
+    restart: always
+    ports:
+      - '1200:1200'
+    environment:
+      - NODE_ENV=production
+      - CACHE_TYPE=redis
+      - REDIS_URL=redis://redis:6379/
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
