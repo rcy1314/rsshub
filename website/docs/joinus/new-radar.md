@@ -203,11 +203,19 @@ As mentioned earlier in [Other components](/joinus/new-rss/add-docs#documentatio
 
 ## Debugging Radar Rules
 
+## Troubleshooting GitHub Actions Run
+
+If your GitHub Actions run encounters the error message 'Server Error: Sorry, this diff is taking too long to generate', follow these steps to resolve it.
+
 You can debug your radar rules in the RSSHub Radar extension settings of your browser. First, open the settings and switch to the "List of rules" tab. Then scroll down to the bottom of the page and you will see a text field. Here, you can replace the old rules with your new rules for debugging.
 
 If you are worried about losing the original RSSHub radar, don't be. It will be restored if you click the "Update Now" button in the settings page.
 
 Here's an example radar rule that you can play with:
+
+### Resolving 'diff is taking too long to generate' Error
+
+If you encounter the 'diff is taking too long to generate' error in your GitHub Actions run, consider the following steps to resolve it:
 
 ```js
 ({
