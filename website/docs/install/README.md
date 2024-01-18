@@ -108,7 +108,12 @@ Start an RSSHub container
 ```bash
 $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
 ```
+### Configuration
 
+Edit `environment` in [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml)
+### Configuration
+
+Edit `environment` in [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml)
 Visit [http://127.0.0.1:1200](http://127.0.0.1:1200), and enjoy it! ✅
 
 Execute the following command to stop `RSSHub`.
