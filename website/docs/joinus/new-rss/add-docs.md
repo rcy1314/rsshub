@@ -96,7 +96,7 @@ To add documentation to your route, use the `Route` React component. It works li
 ### Repo Issues (Multiple parameters)
 
 ```tsx
-<Route author="HenryQW" example="/github/issue/DIYgod/RSSHub" path="/github/issue/:user/:repo?" paramsDesc={['GitHub username', 'GitHub repo name, `RSSHub` by default']} />
+<Route author="HenryQW" <Route author="HenryQW" example="/github/issue/DIYgod/RSSHub" path="/github/issue/:user/:repo?" paramsDesc={['GitHub username', 'GitHub repo name, `RSSHub` by default']} />
 ```
 
 ---
