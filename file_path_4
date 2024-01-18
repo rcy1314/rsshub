@@ -1,0 +1,31 @@
+// deployment.test.js
+
+const { expect } = require('chai');
+const sinon = require('sinon');
+const { handleDeploymentError, logDeploymentSuccess } = require('../path/to/deploymentUtils');
+
+describe('Deployment', () => {
+  afterEach(() => {
+    sinon.restore();
+  });
+
+  it('should handle deployment error', () => {
+    const error = new Error('Deployment failed');
+    const loggerStub = sinon.stub(console, 'error');
+
+    handleDeploymentError(error);
+
+    expect(loggerStub.calledOnceWith('An error occurred during deployment:', error)).to.be.true;
+  });
+
+  it('should log deployment success', () => {
+    const loggerStub = sinon.stub(console, 'info');
+
+    logDeploymentSuccess();
+
+    expect(loggerStub.calledOnceWith('Deployment successful')).to.be.true;
+  });
+
+  // Add more test cases to cover different scenarios and edge cases
+
+});
