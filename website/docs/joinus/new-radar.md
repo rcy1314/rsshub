@@ -227,6 +227,7 @@ If you encounter the 'diff is taking too long to generate' error in your GitHub 
                 docs: 'https://docs.rsshub.app/routes/programming#github',
                 source: ['/:user/:repo/issues/:id', '/:user/:repo/issues',  '/:user/:repo'],
                 target: '/github/issue/:user/:repo',
+                note: 'Potential issues with diff generation. Check the GitHub Actions run for diff generation errors.'
             },
         ],
     },
