@@ -28,7 +28,7 @@ Here's the basic code to get you started:
 
 ```js
 // Import the necessary modules
-const got = require('@/utils/got'); // a customised got
+const got = require('got');
 const { parseDate } = require('@/utils/parse-date');
 
 module.exports = async (ctx) => {
@@ -261,7 +261,9 @@ Here's the basic code to get you started:
 
 ```js
 // Require necessary modules
-const got = require('@/utils/got'); // a customised got
+const got = require('got');
+const cheerio = require('cheerio');
+const { parseDate } = require('@/utils/parse-date');
 const cheerio = require('cheerio'); // an HTML parser with a jQuery-like API
 const { parseDate } = require('@/utils/parse-date');
 
