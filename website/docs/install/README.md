@@ -4,6 +4,24 @@ sidebar: auto
 
 # Deployment
 
+# Prerequisites
+
+- Ensure that Git is installed on your system. If not, download and install Git from [https://git-scm.com/](https://git-scm.com/).
+- Install Node.js from [https://nodejs.org/](https://nodejs.org/), if not already installed. It is recommended to use the LTS version.
+- Make sure npm or yarn is installed on your system. You can install npm with Node.js, while yarn can be installed from [https://yarnpkg.com/](https://yarnpkg.com/).
+- For public access deployment, install and configure Nginx from [https://www.nginx.com/resources/wiki/start/topics/tutorials/install/](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/).
+- To deploy using Docker, install Docker from [https://www.docker.com/get-started](https://www.docker.com/get-started) or Docker Compose from [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/).
+- Download and install Redis from [https://redis.io/download](https://redis.io/download) for caching.
+- For deployment on the Heroku platform, follow the guide at [https://devcenter.heroku.com/articles/getting-started-with-nodejs](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
+- Deploy on Google App Engine by following the official documentation [here](https://cloud.google.com/appengine/docs). Ensure that the prerequisites are met.
+- For deployment on Fly.io, follow the guide available at [https://fly.io/docs/](https://fly.io/docs/).
+- Deploy on Zeabur by creating a project and service in the Zeabur dashboard. Refer to the deployment guide at [https://docs.zeabur.com/deploy/domain-binding](https://docs.zeabur.com/deploy/domain-binding).
+
+# Usage of Docker Images
+
+- When using Docker, it is recommended to use the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image. In case the latest version is unstable, download and use the image with a specific date tag temporarily.
+- To enable puppeteer, use the docker image `diygod/rsshub:chromium-bundled`. If a specific date is required, use `diygod/rsshub:chromium-bundled-YYYY-MM-DD`. If deploying with Docker Compose to reduce disk space and memory consumption, modify the `docker-compose.yml` to use `diygod/rsshub:chromium-bundled` instead.
+
 RSSHub provides a painless deployment process if you are equipped with basic programming knowledge, you may open an [issue](https://github.com/DIYgod/RSSHub/issues/new/choose) if you believe you have encountered a problem not listed [here](https://github.com/DIYgod/RSSHub/issues), the community will try to sort it out asap.
 
 The deployment may involve the followings:
