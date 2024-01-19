@@ -101,7 +101,56 @@ $ docker pull diygod/rsshub
 
 Then repeat the installation steps
 
-### Configuration
+### Troubleshooting
+
+## Public Access Deployment
+
+### Nginx Deployment
+
+- [Nginx Documentation](https://nginx.org/en/docs/)
+- [Nginx Troubleshooting Guide](https://www.nginx.com/resources/wiki/start/topics/troubleshooting/)
+
+### Docker Deployment
+
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Troubleshooting Guide](https://docs.docker.com/config/daemon/)
+
+### Redis Deployment
+
+- [Redis Documentation](https://redis.io/documentation)
+- [Redis Troubleshooting Guide](https://redis.io/topics/cluster-tutorial)
+
+### Heroku Deployment
+
+- [Heroku Documentation](https://devcenter.heroku.com/)
+- [Heroku Troubleshooting Guide](https://devcenter.heroku.com/articles/deploying-nodejs)
+
+### Google App Engine Deployment
+
+- [GAE Documentation](https://cloud.google.com/appengine/docs)
+- [GAE Troubleshooting Guide](https://cloud.google.com/appengine/docs/flexible/nodejs/debugging-an-instance)
+
+### Fly.io Deployment
+
+- [Fly.io Documentation](https://fly.io/docs/)
+- [Fly.io Troubleshooting Guide](https://fly.io/docs/faq/troubleshooting/)
+
+### Zeabur Deployment
+
+- [Zeabur Documentation](https://docs.zeabur.com/)
+- [Zeabur Troubleshooting Guide](https://docs.zeabur.com/faq/)
+
+### Troubleshooting Puppeteer
+
+- [Puppeteer Troubleshooting Guide](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
+
+### Troubleshooting System Dependencies
+
+- [System Dependency Troubleshooting Guide](https://docs.rsshub.app/troubleshooting/system-dependencies.html)
+
+### Troubleshooting General Deployment Issues
+
+Anticipate common deployment issues and their resolutions by reviewing our [General Deployment Troubleshooting Guide](https://github.com/DIYgod/RSSHub/wiki/General-Deployment-Troubleshooting-Guide)
 
 Edit `environment` in [docker-compose.yml](https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml)
 
