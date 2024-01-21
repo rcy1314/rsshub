@@ -27,6 +27,10 @@ Deploy for public access may require:
 
 We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image. To enable puppeteer, you can use `diygod/rsshub:chromium-bundled` instead.
 
+:::tip
+To enable puppeteer, replace `diygod/rsshub` with `diygod/rsshub:chromium-bundled` in **EACH** command.
+:::
+
 When the latest version is unstable, you can use the image with a date tag for temporary use. For example, to pull an unstable version with a specific date tag:
 
 ```bash
