@@ -25,9 +25,9 @@ Deploy for public access may require:
 
 ## Docker Image
 
-We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image.
+We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image. To enable puppeteer, you can use `diygod/rsshub:chromium-bundled` instead.
 
-When the latest version is unstable, you can use the image with a date tag for temporary use. For example:
+When the latest version is unstable, you can use the image with a date tag for temporary use. For example, to pull an unstable version with a specific date tag:
 
 ```bash
 $ docker pull diygod/rsshub:2021-06-18
@@ -35,7 +35,7 @@ $ docker pull diygod/rsshub:2021-06-18
 
 You can back to the latest version when the code has been fixed and rebuild the image.
 
-To enable puppeteer, `diygod/rsshub:chromium-bundled` is a good choice. If date specified, it will become: `diygod/rsshub:chromium-bundled-2021-06-18`.
+To enable puppeteer and use the `diygod/rsshub:chromium-bundled` image, modify the `docker-compose.yml` file to use `diygod/rsshub:chromium-bundled` instead.
 
 Another approach to enable puppeteer is deploying with Docker Compose. However, it consumes more disk space and memory. By modifying `docker-compose.yml`, you can use `diygod/rsshub:chromium-bundled` instead to reduce the disk space and memory consumption.
 
