@@ -1,0 +1,5 @@
+
+When writing unit tests, they will be complete, extensive, and cover all edge cases. Test data will be made up as needed. Mocks will be created when necessary to isolate dependencies and ensure thorough testing.
+
+```bash
+<unit_tests>
