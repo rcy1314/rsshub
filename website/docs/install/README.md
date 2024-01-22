@@ -12,6 +12,8 @@ The deployment may involve the followings:
 2.  [Git](https://git-scm.com/)
 3.  [Node.js](https://nodejs.org/)
 4.  [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/zh-Hans/docs/install)
+5.  [Troubleshooting GitHub Actions setup and deployment](link-to-troubleshooting-guide)
+6. [Troubleshooting GitHub Actions setup and deployment](link-to-troubleshooting-guide)
 
 Deploy for public access may require:
 
