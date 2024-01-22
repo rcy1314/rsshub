@@ -12,6 +12,7 @@ As mentioned earlier, we will create an RSS feed for [GitHub Repo Issues](/route
 4.  [Using puppeteer](#using-puppeteer)
 
 ## Via API
+117. If you encounter any issues with GitHub Actions, please provide the error logs for further troubleshooting.
 
 ### Check the API documentation
 
