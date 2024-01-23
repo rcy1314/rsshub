@@ -12,11 +12,11 @@ In order to preview the documentation in real-time, you need to install the depe
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-pnpm i
+pnpm install
 ```
 
 </TabItem>
-<TabItem value="yarn" label="yarn">
+<TabItem value="yarn install" label="yarn">
 
 ```bash
 yarn
@@ -108,9 +108,9 @@ To add documentation to your route, use the `Route` React component. It works li
 ### Keyword (Description with table)
 
 ```tsx
-<Route author="DIYgod" example="/pixiv/search/Nezuko/popular/2" path="/pixiv/search/:keyword/:order?/:mode?" paramsDesc={['keyword', 'rank mode, empty or other for time order, `popular` for popular order, `date` by default', 'filte R18 content, see table below, empty by default']}>
+<Route author="DIYgod" example="/pixiv/search/Nezuko/popular/2" path="/pixiv/search/:keyword/:order?/:mode?" paramsDesc={['keyword', 'rank mode, empty or other for time order, `popular` for popular order, `date` by default', 'filter R18 content, see table below, empty by default>
 
-| only not R18 | only R18 | no filter      |
+|| only not R18 || only R18 || no filter ||
 | ------------ | -------- | -------------- |
 | safe         | r18      | empty or other |
 
