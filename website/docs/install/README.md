@@ -13,7 +13,52 @@ The deployment may involve the followings:
 3.  [Node.js](https://nodejs.org/)
 4.  [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/zh-Hans/docs/install)
 
-Deploy for public access may require:
+## Docker Compose Deployment
+
+### Download and Modify Docker Compose Configuration
+
+To download the Docker Compose file, use the following command:
+
+```bash
+$ wget https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml
+```
+
+Once downloaded, you can modify the configuration file by using your favorite editor, for example:
+
+```bash
+$ vi docker-compose.yml  # or your favorite editor
+```
+
+### Create Docker Volume for Redis Caches
+
+Use the following command to create a docker volume to persist Redis caches:
+
+```bash
+$ docker volume create redis-data
+```
+
+### Launch Docker Compose Deployment
+
+Use the following command to bring up the Docker Compose deployment:
+```bash
+$ docker-compose up -d
+```
+
+### Update Docker Compose Deployment
+
+To update the Docker Compose deployment, you can follow these steps:
+
+1. Remove old containers:
+
+```bash
+$ docker-compose down
+```
+
+2. Repull the latest image if you have downloaded the image before. It is helpful to resolve some issues:
+
+```bash
+$ docker pull diygod/rsshub
+```
 
 1.  [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
 2.  [Docker](https://www.docker.com/get-started) or [docker-compose](https://docs.docker.com/compose/install/)
