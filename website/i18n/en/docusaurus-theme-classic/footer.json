@@ -28,7 +28,7 @@
     "description": "The label of footer link with label=Support RSSHub linking to /support"
   },
   "link.item.label.GitHub": {
-    "message": "GitHub",
+    "message": "RSSHub on GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/DIYgod/RSSHub"
   },
   "link.item.label.Telegram Group": {
