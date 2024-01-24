@@ -106,6 +106,10 @@ To add documentation to your route, use the `Route` React component. It works li
 ---
 
 ### Keyword (Description with table)
+<details>
+  <summary>Click to expand</summary>
+
+```tsx
 
 ```tsx
 <Route author="DIYgod" example="/pixiv/search/Nezuko/popular/2" path="/pixiv/search/:keyword/:order?/:mode?" paramsDesc={['keyword', 'rank mode, empty or other for time order, `popular` for popular order, `date` by default', 'filte R18 content, see table below, empty by default']}>
@@ -115,6 +119,8 @@ To add documentation to your route, use the `Route` React component. It works li
 | safe         | r18      | empty or other |
 
 </Route>
+</details>
+---
 ```
 
 ---
@@ -223,6 +229,9 @@ In addition to the aforementioned component properties, there are several other 
 
 By using these properties, you can provide valuable information to users and make it easier for them to understand and use your route. Adding these properties to your route documentation will add a badge in front of it.
 
+<details>
+  <summary>Click to expand</summary>
+
 ```tsx
 <Route author="HenryQW" example="/github/issue/DIYgod/RSSHub" path="/github/issue/:user/:repo?" paramsDesc={['GitHub username', 'GitHub repo name, `RSSHub` by default']} anticrawler="1" puppeteer="1" radar="1" configRequired="1" supportBT="1" supportPodcast="1" supportScihub="1" />
 ```
@@ -246,7 +255,7 @@ By using these properties, you can provide valuable information to users and mak
 <TabItem value="pnpm" label="pnpm" default>
 
 ```bash
-pnpm run format
+  pnpm run format
 ```
 
 </TabItem>
