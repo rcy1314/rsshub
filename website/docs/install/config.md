@@ -30,6 +30,12 @@ RSSHub supports two caching methods: memory and redis
 
 `CACHE_EXPIRE`: route cache expiry time in seconds, default to `5 * 60`
 
+`CACHE_HOST`: Redis host address, default to `localhost`
+
+`CACHE_PORT`: Redis port number, default to `6379`
+
+`CACHE_PASSWORD`: Redis password, default to empty string
+
 `CACHE_CONTENT_EXPIRE`: content cache expiry time in seconds, it will be recalculated when it is accessed, default to `1 * 60 * 60`
 
 `REDIS_URL`: Redis target address (invalid when `CACHE_TYPE` is set to memory), default to `redis://localhost:6379/`
