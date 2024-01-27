@@ -140,7 +140,7 @@ $ docker run -d --name rsshub -p 1200:1200 -e CACHE_EXPIRE=3600 -e CACHE_TYPE=re
 
 This deployment method includes Redis dependencies. Use the Docker Compose deployment method or deploy external dependencies yourself if you need it.
 
-To configure more options please refer to [Configuration](#configuration).
+To configure more options please refer to [Configuration](config.md).
 
 ## Kubernetes Deployment (Helm)
 
@@ -401,7 +401,7 @@ Please notice that it will not override already existed environment variables, m
 
 This deployment method does not include Redis dependencies. Use the Docker Compose deployment method or deploy external dependencies yourself if you need it.
 
-To configure more options please refer to [Configuration](#configuration).
+To configure more options please refer to [Configuration](config.md).
 
 ### Update
 
