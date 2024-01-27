@@ -135,7 +135,7 @@ The simplest way to configure RSSHub container is via system environment variabl
 For example, adding `-e CACHE_EXPIRE=3600` will set the cache time to 1 hour.
 
 ```bash
-$ docker run -d --name rsshub -p 1200:1200 -e CACHE_EXPIRE=3600 -e GITHUB_ACCESS_TOKEN=example diygod/rsshub
+$ docker run -d --name rsshub -p 1200:1200 -e CACHE_EXPIRE=3600 -e CACHE_TYPE=redis -e CACHE_HOST=redis_host -e CACHE_PORT=redis_port -e CACHE_PASSWORD=redis_password -e GITHUB_ACCESS_TOKEN=example diygod/rsshub
 ```
 
 This deployment method does not include puppeteer (unless using `diygod/rsshub:chromium-bundled` instead) and Redis dependencies. Use the Docker Compose deployment method or deploy external dependencies yourself if you need it.
@@ -390,7 +390,11 @@ Create a `.env` file in the root directory of your project. Add environment-spec
 
 ```
 CACHE_TYPE=redis
+CACHE_TYPE=redis
 CACHE_EXPIRE=600
+CACHE_HOST=redis_host
+CACHE_PORT=redis_port
+CACHE_PASSWORD=redis_password
 ```
 
 Please notice that it will not override already existed environment variables, more rules please refer to [dotenv](https://github.com/motdotla/dotenv)
@@ -578,6 +582,10 @@ network:
 # environment variables section, refer to Settings
 env_variables:
     CACHE_EXPIRE: '300'
+    CACHE_TYPE=redis
+    CACHE_HOST=redis_host
+    CACHE_PORT=redis_port
+    CACHE_PASSWORD=redis_password
 # [END app_yaml]
 ```
 
