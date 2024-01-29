@@ -64,7 +64,15 @@ $ docker volume create redis-data
 Launch
 
 ```bash
-$ docker-compose up -d
+## Deploy to Fly.io
+
+To deploy RSSHub on Fly.io, follow these instructions:
+1. Set up your Fly.io account and install the Fly CLI using the documentation.
+2. Navigate to your RSSHub project directory.
+3. Run `fly launch` to deploy and choose a name and region for your deployment.
+4. Configure any required environment variables using `fly secrets set KEY=VALUE`.
+5. Execute `fly deploy` to start the application.
+6. (Optional) Use `fly certs add your domain` to configure a custom domain, and follow the instructions to configure the related domain resolution at your DNS service provider.
 ```
 
 ### Update
