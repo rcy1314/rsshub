@@ -5,9 +5,9 @@ const got = require('correct/path/to/got');
 const { parseDate } = require('correct/path/to/parse-date');
 
 module.exports = async (ctx) => {
-    // Your logic here
+    // Fetch data from GitHub API and parse it for the RSS feed
 
     ctx.state.data = {
-        // Your RSS output here
+        // Assign RSS feed data to ctx.state.data
     };
 };
