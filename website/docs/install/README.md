@@ -80,7 +80,7 @@ To deploy RSSHub on Fly.io, follow these instructions:
 Remove old containers
 
 ```bash
-$ flyctl redis create
+$ flyctl redis create --name redis-cache
 ```
 
 to create a new Redis database. Choose the same region as when you created the RSSHub app above, and it is recommended to enable [eviction](https://redis.io/docs/reference/eviction/). After creation, a string in the form of `redis://default:<password>@<domain>.upstash.io` will be printed.
