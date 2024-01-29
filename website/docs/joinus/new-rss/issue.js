@@ -5,6 +5,7 @@ const got = require('correct/path/to/got');
 const { parseDate } = require('correct/path/to/parse-date');
 
 module.exports = async (ctx) => {
+  const { username, reponame = 'RSSHub' } = ctx.params;
     // Fetch data from GitHub API and parse it for the RSS feed
 
     ctx.state.data = {
