@@ -113,8 +113,7 @@ $ docker stop rsshub
 Remove the old container
 
 ```bash
-$ docker stop rsshub
-$ docker rm rsshub
+$ docker-compose down
 ```
 
 Then repeat the installation steps
@@ -169,6 +168,7 @@ To upgrade the my-release RSSHub deployment:
 ```bash
 helm upgade my-release nsl/rsshub
 ```
+$ docker-compose down
 
 ### Uninstall
 
