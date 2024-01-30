@@ -73,6 +73,7 @@ RUN \
     mv /app/app-minimal/node_modules /app/ && \
     rm -rf /app/app-minimal && \
     ls -la /app && \
+    cp /app/scripts/docker/minify-docker.js /app/scripts/docker/minify-docker.js && \
     du -hd1 /app
 
 # ---------------------------------------------------------------------------------------------------------------------
