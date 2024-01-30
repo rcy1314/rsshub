@@ -4,6 +4,8 @@ services:
     image: diygod/rsshub
     ports:
       - '1200:1200'
+    environment:
+      - REDIS_URL=redis://localhost:6379
     volumes:
       - redis-data:/data
   redis:
