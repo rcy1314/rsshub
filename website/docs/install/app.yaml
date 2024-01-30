@@ -1,0 +1,16 @@
+# [START app_yaml]
+runtime: nodejs12
+
+network:
+  forwarded_ports:
+    - 80:1200
+    - 443:1200
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+env_variables:
+  CACHE_EXPIRE: '300'
+# [END app_yaml]
