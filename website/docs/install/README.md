@@ -1,13 +1,3 @@
----
-sidebar: auto
----
-
-# Deployment
-
-RSSHub provides a painless deployment process if you are equipped with basic programming knowledge, you may open an [issue](https://github.com/DIYgod/RSSHub/issues/new/choose) if you believe you have encountered a problem not listed [here](https://github.com/DIYgod/RSSHub/issues), the community will try to sort it out asap.
-
-The deployment may involve the followings:
-
 1.  Command line interface
 2.  [Git](https://git-scm.com/)
 3.  [Node.js](https://nodejs.org/)
