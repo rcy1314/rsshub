@@ -528,6 +528,9 @@ If you encounter deployment issues, follow these steps to troubleshoot and resol
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/DIYgod/RSSHub)
 #### Automatic deploy upon update
 
+5. Install the [Pull](https://github.com/apps/pull) app to keep your fork synchronized with RSSHub.
+6. Configure the Pull app for automatic synchronization. For more information on installation and configuration, refer to the [Pull app documentation](https://pull.link/docs/installation).
+
 1.  [Fork RSSHub](https://github.com/DIYgod/RSSHub/fork) to your GitHub account. (ZEIT Now)
 
 ### Instant deploy (without automatic update)
