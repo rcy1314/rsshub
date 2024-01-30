@@ -4,7 +4,7 @@ sidebar: auto
 
 # Deployment
 
-RSSHub provides a painless deployment process if you are equipped with basic programming knowledge, you may open an [issue](https://github.com/DIYgod/RSSHub/issues/new/choose) if you believe you have encountered a problem not listed [here](https://github.com/DIYgod/RSSHub/issues), the community will try to sort it out asap.
+RSSHub provides a painless deployment process if you are equipped with basic programming knowledge. If you encounter issues with the GitHub Actions run, refer to the 'Troubleshooting GitHub Actions' section below for specific troubleshooting steps. If you encounter issues with the GitHub Actions run, refer to the 'Troubleshooting GitHub Actions' section below for specific troubleshooting steps.
 
 The deployment may involve the followings:
 
@@ -66,6 +66,15 @@ Launch
 
 ```bash
 ## Deploy to Fly.io
+
+To troubleshoot GitHub Actions failures, you can check the GitHub Actions logs for more detailed error messages. Here's how to do it:
+
+1. Navigate to the GitHub repository and go to the Actions tab.
+2. Select the specific workflow run that failed.
+3. View the logs to identify any error messages and diagnostic information related to the failure.
+4. Use the information from the logs to diagnose and address the root cause of the failure.
+
+Adjust your deployment accordingly based on the insights gained from the GitHub Actions logs.
 
 To deploy RSSHub on Fly.io, follow these instructions:
 1. Set up your Fly.io account and install the Fly CLI using the documentation.
@@ -447,9 +456,32 @@ in pkgs.stdenv.mkDerivation {
 }
 ```
 
+## Troubleshooting GitHub Actions
+
+If you encounter issues with the GitHub Actions run, here are some common deployment issues and how to resolve them.
+
+### Common Deployment Issues
+
+1. **Failure to Deploy due to Missing Dependencies**: Check the GitHub Actions logs to see if there are any errors related to missing dependencies. Ensure that all required dependencies are included in the deployment configuration.
+2. **Configuration Errors**: Look for any configuration errors in the GitHub Actions logs and review the relevant deployment files and configuration files for any misconfigurations.
+3. **Environment Variable Errors**: If there are issues with environment variables, verify that all required environment variables are correctly set in the deployment configuration. Review the relevant documentation to ensure proper setup.
+
+### Resolving Deployment Issues
+
+If you encounter any deployment issues, take the following steps to resolve them:
+1. **Review GitHub Actions Logs**: Check the GitHub Actions logs for detailed error messages and specific information about the deployment issues.
+2. **Modify Deployment Files**: If necessary, make modifications to the relevant deployment files and configuration files to address any misconfigurations or missing dependencies.
+3. **Refer to Documentation**: Consult the official documentation for troubleshooting guidance and best practices for resolving common deployment issues.
+
 ## Deploy to Railway
 
-Automatic updates are included.
+Automatic updates are included. When referring to specific deployment files and configuration files, be sure to check and modify the following:
+1. `deployment.yml`
+2. `config.js`
+3. `secrets.json`
+4. `fly.toml`
+5. `Dockerfile`
+6. `app.yaml`
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/QxW__f?referralCode=9wT3hc)
 
