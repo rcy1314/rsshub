@@ -5,6 +5,19 @@
 
 > 🍰 Everything is RSSible
 
+## Troubleshooting GitHub Actions Failures
+When GitHub Actions fail, it is important to analyze the error logs to identify the root cause of the failure. Look for specific error messages and stack traces that indicate where the failure occurred. Additionally, check for any relevant information related to the failure.
+
+### Common Issues and Troubleshooting Tips
+- **Incorrect Workflow Configuration:** Ensure that the workflow configuration in the `main.yml` file is correct and properly formatted.
+- **Permissions and Access:** Verify that the GitHub Actions workflow has the necessary permissions and access to perform the required operations.
+- **Environment Setup:** Check the environment setup and installation steps in the workflow, ensuring that all dependencies are properly installed and available.
+- **Resource Limitations:** Verify that the GitHub Actions workflow does not exceed resource limitations, such as memory, disk space, or execution time.
+
+
+## Updating the Main.yml Workflow
+If specific errors or issues are identified in the error logs, make the necessary changes to the `main.yml` workflow file. This may involve updating commands, environment variables, or workflow configuration to address the identified issues.
+
 [![](https://img.shields.io/badge/dynamic/json?url=https://rsshub-analytics.diygod.workers.dev/&query=requests&color=F38020&label=requests&logo=cloudflare&style=flat-square&suffix=/month)](https://rsshub.app)
 [![docker publish](https://img.shields.io/docker/pulls/diygod/rsshub?label=docker%20pulls&logo=docker&style=flat-square)](https://hub.docker.com/r/diygod/rsshub)
 [![npm publish](https://img.shields.io/npm/dt/rsshub?label=npm%20downloads&logo=npm&style=flat-square)](https://www.npmjs.com/package/rsshub)
@@ -59,6 +72,28 @@ Logo designer [sheldonrrr](https://dribbble.com/sheldonrrr)
 We welcome all pull requests. Suggestions and feedback are also welcomed [here](https://github.com/DIYgod/RSSHub/issues).
 
 Refer to [Join Us](https://docs.rsshub.app/joinus/quick-start)
+
+## Troubleshooting GitHub Actions Failures
+1. When GitHub Actions fail, it is important to analyze the error logs to identify the root cause of the failure. Look for specific error messages and stack traces that indicate where the failure occurred. Additionally, check for any relevant information related to the failure.
+
+### Common Issues and Troubleshooting Tips
+- **Incorrect Workflow Configuration:** Ensure that the workflow configuration in the `main.yml` file is correct and properly formatted.
+- **Permissions and Access:** Verify that the GitHub Actions workflow has the necessary permissions and access to perform the required operations.
+- **Environment Setup:** Check the environment setup and installation steps in the workflow, ensuring that all dependencies are properly installed and available.
+- **Resource Limitations:** Verify that the GitHub Actions workflow does not exceed resource limitations, such as memory, disk space, or execution time.
+
+## Resolving GitHub Actions Failures
+If issues are identified in the error logs, make necessary changes to the `main.yml` workflow to address the identified issues.
+
+### Analyzing Error Logs
+- Look for specific error messages.
+- Check for relevant information on the failure.
+- Identify the root cause of the failure.
+
+### Analyzing Error Logs
+- Look for specific error messages.
+- Check for relevant information on the failure.
+- Identify the root cause of the failure.
 
 ## Deployment
 
