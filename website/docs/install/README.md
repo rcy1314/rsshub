@@ -603,9 +603,9 @@ You can access your `Google App Engine URL` to check the deployment status
 
 ## Play with Docker
 
-If you would like to test routes or avoid IP limits, etc., you may build your own RSSHub for free by clicking the button below.
+To deploy RSSHub using Play with Docker, click the button below to build and test your own RSSHub installation.
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml)
+[![Deploy using Play with Docker](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml)
 
 :::warning
 
