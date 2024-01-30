@@ -64,7 +64,15 @@ $ docker volume create redis-data
 Launch
 
 ```bash
-$ docker-compose up -d
+## Deploy to Fly.io
+
+To deploy RSSHub on Fly.io, follow these instructions:
+1. Set up your Fly.io account and install the Fly CLI using the documentation.
+2. Navigate to your RSSHub project directory.
+3. Run `fly launch` to deploy and choose a name and region for your deployment.
+4. Configure any required environment variables using `fly secrets set KEY=VALUE`.
+5. Execute `fly deploy` to start the application.
+6. (Optional) Use `fly certs add your domain` to configure a custom domain, and follow the instructions to configure the related domain resolution at your DNS service provider.
 ```
 
 ### Update
@@ -72,7 +80,22 @@ $ docker-compose up -d
 Remove old containers
 
 ```bash
-$ docker-compose down
+$ flyctl redis create --name redis-cache
+$ fly secrets set REDIS_URL="<the connection URL>"
+$ fly secrets set REDIS_URL="<the connection URL>"
+```
+
+to create a new Redis database. Choose the same region as when you created the RSSHub app above, and it is recommended to enable [eviction](https://redis.io/docs/reference/eviction/). After creation, a string in the form of `redis://default:<password>@<domain>.upstash.io` will be printed.
+
+Due to [a bug in a dependency](https://github.com/luin/ioredis/issues/1576), you currently need to append the `family=6` parameter to the URL provided by Fly.io, i.e., use `redis://default:<password>@<domain>.upstash.io/?family=6` as the connection URL.
+
+Then configure the `[env]` section in fly.toml or run
+
+```bash
+$ fly secrets set CACHE_TYPE=redis REDIS_URL='<the connection URL>'
+```
+
+and execute `fly deploy` (if use the second install method) to trigger a redeployment to complete the configuration.
 ```
 
 Repull the latest image if you have downloaded the image before. It is helpful to resolve some issues.
@@ -508,23 +531,7 @@ Upgrade: Enter the directory where you saved the `fly.toml` file and execute `fl
 
 ### Configure built-in Upstash Redis as cache
 
-Run in the `RSSHub` folder
-
-```bash
-$ flyctl redis create
-```
-
-to create a new Redis database. Choose the same region as when you created the RSSHub app above, and it is recommended to enable [eviction](https://redis.io/docs/reference/eviction/). After creation, a string in the form of `redis://default:<password>@<domain>.upstash.io` will be printed.
-
-Due to [a bug in a dependency](https://github.com/luin/ioredis/issues/1576), you currently need to append the `family=6` parameter to the URL provided by Fly.io, i.e., use `redis://default:<password>@<domain>.upstash.io/?family=6` as the connection URL.
-
-Then configure the `[env]` section in fly.toml or run
-
-```bash
-$ fly secrets set CACHE_TYPE=redis REDIS_URL='<the connection URL>'
-```
-
-and execute `fly deploy` (if use the second install method) to trigger a redeployment to complete the configuration.
+new line(s) to append to snippet 1
 
 ## Deploy to PikaPods
 
