@@ -62,19 +62,19 @@ Create a docker volume to persist Redis caches
 $ docker volume create redis-data
 ```
 
-Launch
+To troubleshoot deployment issues on Fly.io, follow these steps to diagnose and address the root cause of the failure:
 
 ```bash
 ## Deploy to Fly.io
 
 To troubleshoot GitHub Actions failures, you can check the GitHub Actions logs for more detailed error messages. Here's how to do it:
 
-1. Navigate to the GitHub repository and go to the Actions tab.
+1. Navigate to the Fly.io dashboard and access the deployment logs to identify any error messages and diagnostic information related to the failure:
 2. Select the specific workflow run that failed.
 3. View the logs to identify any error messages and diagnostic information related to the failure.
-4. Use the information from the logs to diagnose and address the root cause of the failure.
+4. Use the information from the logs to diagnose and address the root cause of the failure. For additional troubleshooting guidance and best practices for resolving common deployment issues on Fly.io, refer to the [Fly.io Deployment Troubleshooting Guide](https://fly.io/docs/about/docs/tips-and-tricks/troubleshooting-deployments/)
 
-Adjust your deployment accordingly based on the insights gained from the GitHub Actions logs.
+Adjust your deployment accordingly based on the insights gained from the GitHub Actions logs and follow these troubleshooting steps if faced with deployment issues on Fly.io:
 
 To deploy RSSHub on Fly.io, follow these instructions:
 1. Set up your Fly.io account and install the Fly CLI using the documentation.
