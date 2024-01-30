@@ -15,17 +15,17 @@ Deploy for public access may require:
 
 ## Docker Image
 
-We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub:latest`) of the docker image.
+We recommend using the latest version `diygod/rsshub` (i.e. `diygod/rsshub`) of the docker image.
 
 When the latest version is unstable, you can use the image with a date tag for temporary use. For example:
 
 ```bash
-$ docker pull diygod/rsshub:2021-06-18
+$ docker pull diygod/rsshub:latest
 ```
 
 You can back to the latest version when the code has been fixed and rebuild the image.
 
-To enable puppeteer, `diygod/rsshub:chromium-bundled` is a good choice. If date specified, it will become: `diygod/rsshub:chromium-bundled-2021-06-18`.
+To enable puppeteer, `diygod/rsshub:chromium-bundled` is a good choice. If date specified, it will become: `diygod/rsshub:chromium-bundled`.
 
 Another approach to enable puppeteer is deploying with Docker Compose. However, it consumes more disk space and memory. By modifying `docker-compose.yml`, you can use `diygod/rsshub:chromium-bundled` instead to reduce the disk space and memory consumption.
 
@@ -451,7 +451,7 @@ Heroku [no longer](https://blog.heroku.com/next-chapter) offers free product pla
 
 ### Automatic deploy upon update
 
-1.  [Fork RSSHub](https://github.com/DIYgod/RSSHub/fork) to your GitHub account.
+1.  [Deploy RSSHub](https://github.com/DIYgod/RSSHub/fork) to your GitHub account.
 2.  Deploy your fork to Vercel: Login Vercel with your GitHub account, create and deploy [new Vercel project](https://vercel.com/new/) with your RSSHub repository.
 3.  Install [Pull](https://github.com/apps/pull) app to keep your fork synchronized with RSSHub.
 
@@ -532,7 +532,7 @@ Run RSSHub from just $1/month. Includes automatic updates and $5 free starting c
 
 ### Before You Begin
 
-Follow the [official guide](https://cloud.google.com/appengine/docs/flexible/nodejs/quickstart) for completing your GCP account settings, creating a new Node project, adding billing information (required), installing git and initializing gcloud([link](https://cloud.google.com/sdk/gcloud/)). Node.js is not required if you don't plan to debug RSSHub locally.
+Follow the [official guide](https://cloud.google.com/appengine/docs/flexible/nodejs/quickstart) for completing your GCP account settings, creating a new Node project, adding billing information (required), installing git and initializing gcloud([link](https://cloud.google.com/sdk/gcloud/)). Node.js is not required if you don't plan to debug your-RSSHub locally.
 
 Please note, GAE free tier doesn't support Flexible Environment, please check the pricing plan prior to deployment.
 
@@ -562,10 +562,9 @@ resources:
     cpu: 1
     memory_gb: 0.5
     disk_size_gb: 10
-network:
-    forwarded_ports:
-        - 80:1200
-        - 443:1200
+    ports:
+        - "80"
+        - "443"
 # environment variables section, refer to Settings
 env_variables:
     CACHE_EXPIRE: '300'
