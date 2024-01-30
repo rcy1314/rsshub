@@ -583,6 +583,21 @@ Upgrade: Enter the directory where you saved the `fly.toml` file and execute `fl
 
 ### Configure built-in Upstash Redis as cache
 
+Override the internal Redis by configuring the `fly.toml` file as follows:
+
+```toml
+[build]
+image = "diygod/rsshub:latest"
+
+[env]
+CACHE_TYPE = "redis"
+
+# Replace with the actual connection URL
+REDIS_URL = "redis://default:<password>@<domain>.upstash.io/?family=6"
+```
+
+Replace `<password>` with the actual password and `<domain>` with the actual domain of the Upstash Redis database.
+
 new line(s) to append to snippet 1
 
 ## Deploy to PikaPods
