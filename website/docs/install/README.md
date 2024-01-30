@@ -59,6 +59,8 @@ Create a docker volume to persist Redis caches
 
 ```bash
 $ docker volume create redis-data
+
+$ docker-compose up -d
 ```
 
 Launch
@@ -108,7 +110,6 @@ Start an RSSHub container
 ```bash
 $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
 ```
-
 Visit [http://127.0.0.1:1200](http://127.0.0.1:1200), and enjoy it! ✅
 
 Execute the following command to stop `RSSHub`.
