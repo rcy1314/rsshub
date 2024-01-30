@@ -577,7 +577,7 @@ Under RSSHub's root directory, create a file `app.yaml` with the following conte
 
 ```yaml
 # [START app_yaml]
-runtime: nodejs8
+runtime: nodejs14
 
 network:
     forwarded_ports:
