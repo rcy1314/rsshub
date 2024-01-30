@@ -2,6 +2,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const { nodeFileTrace } = require('@vercel/nft');
+const { URL } = require('url');
+const { URL } = require('url');
 // !!! if any new dependencies are added, update the Dockerfile !!!
 
 const projectRoot = path.resolve(process.env.PROJECT_ROOT || path.join(__dirname, '../..'));
