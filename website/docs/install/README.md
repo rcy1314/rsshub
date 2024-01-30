@@ -514,7 +514,21 @@ Automatic updates are included.
 
 [![Deploy to Sealos](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://template.cloud.sealos.io/deploy?templateName=rsshub)
 
-## Deploy to Vercel (ZEIT Now)
+Troubleshooting Deployment Issues
+
+If you encounter deployment issues, follow these steps to troubleshoot and resolve them:
+1. **Review Deployment Logs**: Check the deployment logs on Vercel for error messages and specific information about the deployment issues.
+2. **Modify Deployment Configuration**: If necessary, make modifications to the deployment configuration and files to address any misconfigurations or issues.
+3. **Consult Vercel Documentation**: Refer to the [Vercel documentation on troubleshooting deployments](https://vercel.com/docs/platform/troubleshooting) for guidance and best practices for resolving common deployment issues.
+
+### Deploy to Vercel (ZEIT Now)
+
+#### Instant deploy (without automatic update)
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/DIYgod/RSSHub)
+#### Automatic deploy upon update
+
+1.  [Fork RSSHub](https://github.com/DIYgod/RSSHub/fork) to your GitHub account. (ZEIT Now)
 
 ### Instant deploy (without automatic update)
 
