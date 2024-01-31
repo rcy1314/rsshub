@@ -457,7 +457,8 @@ Automatic updates are included.
 
 ## Deploy to Heroku
 
-### Notice
+Heroku no longer offers free product plans. To deploy your RSSHub project on Heroku, follow these instructions:
+1. Fork the RSSHub repository by visiting [RSSHub Fork](https://github.com/DIYgod/RSSHub/fork).
 
 :::warning Update
 
@@ -540,9 +541,12 @@ new line(s) to append to snippet 1
 
 ## Deploy to PikaPods
 
-Run RSSHub from just $1/month. Includes automatic updates and $5 free starting credit.
+PikaPods provides an affordable deployment solution for RSSHub, starting from just $1/month. This includes automatic updates and $5 free starting credit to get you started.
 
-[![Run on PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?run=rsshub)
+To get started with PikaPods, follow these steps:
+1. Sign up for PikaPods by visiting [PikaPods Sign Up](https://www.pikapods.com/).
+2. Create a new project for your RSSHub deployment.
+3. Deploy your RSSHub project by visiting the [PikaPods Deploy Page](https://www.pikapods.com/pods?run=rsshub).
 
 ## Deploy to Zeabur
 
