@@ -33,7 +33,6 @@ const { parseDate } = require('@/utils/parse-date');
 
 module.exports = async (ctx) => {
     // Your logic here
-
     ctx.state.data = {
         // Your RSS output here
     };
