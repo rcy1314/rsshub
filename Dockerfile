@@ -8,7 +8,7 @@ WORKDIR /app
 ARG USE_CHINA_NPM_REGISTRY=0
 RUN \
     set -ex && \
-    if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
+    if [ "$USE_CHINA_NPM_REGISTRY" -eq 1 ]; then \
         echo 'use npm mirror' && \
         npm config set registry https://registry.npmmirror.com && \
         yarn config set registry https://registry.npmmirror.com && \
@@ -53,7 +53,7 @@ COPY --from=dep-version-parser /ver/* /minifier/
 ARG USE_CHINA_NPM_REGISTRY=0
 RUN \
     set -ex && \
-    if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
+    if [ "$USE_CHINA_NPM_REGISTRY" -eq 1 ]; then \
         npm config set registry https://registry.npmmirror.com && \
         yarn config set registry https://registry.npmmirror.com && \
         pnpm config set registry https://registry.npmmirror.com ; \
@@ -93,7 +93,7 @@ ARG PUPPETEER_SKIP_DOWNLOAD=1
 RUN \
     set -ex ; \
     if [ "$PUPPETEER_SKIP_DOWNLOAD" = 0 ] && [ "$TARGETPLATFORM" = 'linux/amd64' ]; then \
-        if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
+        if [ "$USE_CHINA_NPM_REGISTRY" -eq 1 ]; then \
             npm config set registry https://registry.npmmirror.com && \
             yarn config set registry https://registry.npmmirror.com && \
             pnpm config set registry https://registry.npmmirror.com ; \
