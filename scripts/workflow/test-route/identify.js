@@ -67,7 +67,9 @@ module.exports = async ({ github, context, core }, body, number, sender) => {
             自动路由测试失败，请确认 PR 正文部分符合格式规范并重新开启，详情请检查 [日志](${logUrl})。`);
         }
     
-        return createComment(`Route Test failed, please check your comment body. Check [logs](${logUrl}) for more details.
+        const errorMessage = `Route Test failed. Please make sure your comment body contains valid routes. Check the PR body format and the documentation for more information.`;
+        
+        return createComment(errorMessage);
             路由测试失败，请确认评论部分符合格式规范，详情请检查 [日志](${logUrl})。`);
     };
     
