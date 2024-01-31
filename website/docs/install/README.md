@@ -60,6 +60,8 @@ Create a docker volume to persist Redis caches
 
 ```bash
 $ docker volume create redis-data
+$ flyctl redis create --name redis-cache
+$ fly secrets set REDIS_URL="<the connection URL>"
 ```
 
 Launch
