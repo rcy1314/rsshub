@@ -108,11 +108,19 @@ To add documentation to your route, use the `Route` React component. It works li
 ### Keyword (Description with table)
 
 ```tsx
-<Route author="DIYgod" example="/pixiv/search/Nezuko/popular/2" path="/pixiv/search/:keyword/:order?/:mode?" paramsDesc={['keyword', 'rank mode, empty or other for time order, `popular` for popular order, `date` by default', 'filte R18 content, see table below, empty by default']}>
+### Example: Adding a Route for Keyword Search (Description with Table)
+```
+tsx
+<Route
+  author="DIYgod"
+  example="/pixiv/search/Nezuko/popular/2"
+  path="/pixiv/search/:keyword/:order?/:mode?"
+  paramsDesc={['keyword', 'rank mode, empty or other for time order, `popular` for popular order, `date` by default', 'filte R18 content, see table below, empty by default']}
+>
 
-| only not R18 | only R18 | no filter      |
-| ------------ | -------- | -------------- |
-| safe         | r18      | empty or other |
+  | only not R18 | only R18 | no filter      |
+  | ------------ | -------- | -------------- |
+  | safe         | r18      | empty or other |
 
 </Route>
 ```
@@ -140,6 +148,8 @@ If you'd like to provide additional information about a particular route, you ca
 </details>
 
 :::note
+
+This is a note.
 
 This is a note.
 
