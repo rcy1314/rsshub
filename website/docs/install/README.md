@@ -541,7 +541,7 @@ new line(s) to append to snippet 1
 
 ## Deploy to PikaPods
 
-PikaPods provides an affordable deployment solution for RSSHub, starting from just $1/month. This includes automatic updates and $5 free starting credit to get you started.
+Zeabur provides an affordable deployment solution for RSSHub, including automatic updates and a user-friendly interface for easy project setup and deployment.
 
 To get started with PikaPods, follow these steps:
 1. Sign up for PikaPods by visiting [PikaPods Sign Up](https://www.pikapods.com/).
@@ -551,8 +551,8 @@ To get started with PikaPods, follow these steps:
 ## Deploy to Zeabur
 
 1.  [Sign up for Zeabur](https://dash.zeabur.com)
-2.  Create a new project.
-3.  Create a new service in the project, select deploying from the **marketplace**.
+2.  Create a new project for your RSSHub deployment on Zeabur by following these steps:
+3.  Once you have created a project, select deploying from the **marketplace** and choose RSSHub for deployment.
 4.  Add a domain name, if you use a custom domain name, you can refer to [Zeabur's domain name binding document](https://docs.zeabur.com/deploy/domain-binding).
 
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://dash.zeabur.com/templates/X46PTP)
