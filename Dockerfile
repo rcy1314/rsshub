@@ -10,9 +10,9 @@ RUN \
     set -ex && \
     if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
         echo 'use npm mirror' && \
-        npm config set registry https://registry.npmmirror.com && \
-        yarn config set registry https://registry.npmmirror.com && \
-        pnpm config set registry https://registry.npmmirror.com ; \
+        npm config set registry https://registry.npm.taobao.org && \
+        yarn config set registry https://registry.npm.taobao.org && \
+        pnpm config set registry https://registry.npm.taobao.org ; \
     fi;
 
 COPY ./pnpm-lock.yaml /app/
@@ -33,7 +33,6 @@ FROM debian:bookworm-slim AS dep-version-parser
 # With this stage, any modification to package.json won't break the build cache of the next two stages as long as the
 # version unchanged.
 # node:20-bookworm-slim is based on debian:bookworm-slim so this stage would not cause any additional download.
-
 WORKDIR /ver
 COPY ./package.json /app/
 RUN \
@@ -154,6 +153,18 @@ COPY --from=chromium-downloader /app/node_modules/.cache/puppeteer /app/node_mod
 # if grep matches nothing then it will exit with 1, thus, we cannot `set -e` here
 RUN \
     set -x && \
+    apt-get install -yq --no-install-recommends \
+        apt-file \
+    ; \
+    apt-file update && \
+    ldd $(find /app/node_modules/.cache/puppeteer/ -name chrome -type f) | grep -Po "\S+(?= => not found)" | \
+    sed 's/\./\\./g' | awk '{print $1"$"}' | apt-file search -xlf - | grep ^lib | \
+    xargs -d '\n' -- \
+        apt-get install -yq --no-install-recommends \
+    && \
+    apt purge -yq --auto-remove \
+        apt-file \
+    rm -rf /tmp/.chromium_path /var/lib/apt/lists/*
     if [ "$PUPPETEER_SKIP_DOWNLOAD" = 0 ] && [ "$TARGETPLATFORM" = 'linux/amd64' ]; then \
         echo 'Verifying Chromium installation...' && \
         ldd $(find /app/node_modules/.cache/puppeteer/ -name chrome -type f) | grep "not found" ; \
