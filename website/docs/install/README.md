@@ -16,6 +16,7 @@ The deployment may involve the followings:
 Deploy for public access may require:
 
 1.  [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+2.  [GitHub Actions](https://docs.github.com/en/actions/getting-started)
 2.  [Docker](https://www.docker.com/get-started) or [docker-compose](https://docs.docker.com/compose/install/)
 3.  [Redis](https://redis.io/download)
 4.  [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
@@ -284,7 +285,7 @@ This Ansible playbook includes RSSHub, Redis, browserless (uses Docker) and Cadd
 
 Currently only support Ubuntu 20.04
 
-Requires sudo privilege and virtualization capability (Docker will be automatically installed)
+Requires sudo privilege, virtualization capability, and GitHub Actions configuration (Docker and GitHub Actions will be automatically installed)
 
 ### Install
 
@@ -573,6 +574,8 @@ Under RSSHub's root directory, create a file `app.yaml` with the following conte
 # [START app_yaml]
 runtime: custom
 env: flex
+
+# Add GitHub Actions
 
 # This sample incurs costs to run on the App Engine flexible environment.
 # The settings below are to reduce costs during testing and are not appropriate
