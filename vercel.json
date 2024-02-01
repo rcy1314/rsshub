@@ -1,5 +1,6 @@
 {
     "framework": null,
     "github": { "silent": true },
-    "routes": [{ "src": "/.*", "dest": "/api/vercel.js" }]
+    "routes": [{ "src": "/api/.*","headers": {"Cache-Control": "s-maxage=43200,immutable" },
+    { "src": "/vercel/api/rsshub", "dest": "/api/vercel.js" } }]
 }
